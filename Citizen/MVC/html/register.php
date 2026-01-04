@@ -4,16 +4,17 @@
         <meta charset="UTF-8">
         <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
         <title> Citizen Registration </title>
-        <link rel="stylesheet" href="SmartCityHub/Citizen/MVC/css/citizen-style.css">
+        <link rel="stylesheet" href="SmartCityHub/Citizen/MVC/css/register-style.css">
+        <script src="SmartCityHub/Citizen/MVC/js/register-validation.js" defer></script>
 
     </head>
 <body>
     <div class="container">
         <h2>Citizen Registration </h2>
-    <?php if($message):?>
+    <?php if(isset($message)):?>
         <p class="message"><?php echo $message;?> </p>
     <?php endif;?>
-    <form method="POST" action="SmartCityHub/Citizen/MVC/php/register_controller.php">
+    <form id="registerForm" method="POST" action="SmartCityHub/Citizen/MVC/php/register_controller.php">
         <label>First Name </label>
         <input type="text" name="first_name" required>
         <label>Last Name </label>
