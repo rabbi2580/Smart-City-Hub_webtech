@@ -2,10 +2,10 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Citizen Registration </title>
-        <link rel="stylesheet" href="SmartCityHub/Citizen/MVC/css/register-style.css">
-        <script src="SmartCityHub/Citizen/MVC/js/register-validation.js" defer></script>
+        <link rel="stylesheet" href="../css/register-style.css">
+        <script src="../js/register-validation.js" defer></script>
 
     </head>
 <body>
@@ -24,7 +24,7 @@
         <label>Password</label>
         <input type="password" name="password" required>
         <label>Confirm password </label>
-        <input type="password" name="confirm password" required>
+        <input type="password" name="confirm_password" required>
         <label>ID Number</label>
         <input type="text" name="id_number" required>
         <label>Phone Number</label>
