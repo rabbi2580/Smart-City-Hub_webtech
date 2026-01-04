@@ -7,5 +7,13 @@
         <link rel="stylesheet" href="SmartCityHub/Citizen/MVC/css/citizen-style.css">
 
     </head>
-
+<body>
+    <div class="container">
+        <h2>Citizen Registration </h2>
+    <?php if($message):?>
+        <p class="message"><?php echo $message;?> </p>
+    <?php endif;?>
+    
+    </div>
+</body>
 </html>
