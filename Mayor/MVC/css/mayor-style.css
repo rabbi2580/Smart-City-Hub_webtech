@@ -1,16 +1,16 @@
 body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background: lightgrey;
-    color: aliceblue;
+    background: rgb(156, 131, 87);
+    color: rgb(224, 232, 238);
     padding: 0;
-    min-height: 100vh;
+    min-height: 100px;
 
 }
 .container{
     background: rgba(0,0, 0, 0.6);
     padding: 40px;
     border-radius: 15px;
-    width: 100%;
+    width: 80%;
     max-width: 900px;
     margin: 40px auto;
     box-shadow: 0 0 20px rgba(0,0, 0, 0.5);
@@ -26,12 +26,12 @@ h1{
     align-items: center;
     margin-bottom: 30px;
 }
-.change-inf0-btn{
-    background:#ffcc00 ;
-    color: aliceblue;
+.change_info_button{
+    background:#9d967b ;
+    color: wheat;
     padding: 10px 20px;
     border-radius: 8px;
-    text-decoration:none;
+    text-decoration: wavy;
     font-weight: bold;
 
 }
@@ -41,19 +41,19 @@ h1{
 .btn{
     display: block;
     background:#ffcc00 ;
-    color: #003366;
+    color: #000000;
     padding: 15px;
     margin:15px auto ;
     width: 60%;
     text-align: center;
     border-radius: 8px;
-    text-decoration: none;
+    text-decoration: wavy;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 22px;
 }
 .back-btn{
     display: block;
-    color: aquamarine;
+    color: rgb(214, 200, 200);
     margin: 20px 0;
     text-decoration: none;
 }
@@ -68,22 +68,25 @@ th,td{
     text-align: left;
 }
 th{
-    background:#003366 ;
+    background:#677f97 ;
 }
 .action-button{
     text-align: center;
     margin-top: 30px;
 }
-.action-button,.reject-btn{
+.approve-btn,.reject-btn{
     padding: 12px 30px;
     border: none;
-    border-radius: 8px;
-    color: azure;
+    border-radius: 18px;
+    color: rgb(0, 0, 0);
     cursor: pointer;
     margin: 0 10px;
+    font-size: 22px;
+    font-weight: bold;
 }
 .approve-btn{
     background: green;
+    font-size: 22px;
 }
 .reject-btn{
     background: red;

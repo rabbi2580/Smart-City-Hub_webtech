@@ -27,7 +27,6 @@
                     <td>Broken Streetlight</td>
                     <td>Streetlight</td>
                     <td>Completed</td>
-                    <td>Test Citizen</td>
                     <td>Mohakhali</td>
                 </tr>
 
