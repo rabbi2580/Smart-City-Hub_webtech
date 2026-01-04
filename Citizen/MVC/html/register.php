@@ -33,7 +33,7 @@
         <button type="submit"> Register </button>
     
     </form>
-    <p>Already have an Smart City Hub account?<a href="login.php">Login here</a> </p>
+    <p>Already have an Smart City Hub account?<a href="login.php">Click here</a> </p>
     </div>
 </body>
 </html>

@@ -16,3 +16,42 @@ body{
     width: 400px;
     text-align: center;
 }
+h2{
+    color:green ;
+    margin-bottom: 20px;
+
+}
+input{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px;
+    border-radius: 5px;
+    box-sizing: border-box ;
+}
+button{
+    background: red;
+    color: azure;
+    padding: 12px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 160x;
+    cursor: pointer;
+}
+button:hover{
+    background: #004d40 ;
+
+}
+
+.message{
+    padding: 10px;
+    background:#d4edda;
+    color: cadetblue;
+    border: 1px;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+a{
+    color:#00796b ;
+    text-decoration: none;
+}
