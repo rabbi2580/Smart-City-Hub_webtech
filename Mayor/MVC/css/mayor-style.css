@@ -1,0 +1,114 @@
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: lightgrey;
+    color: aliceblue;
+    padding: 0;
+    min-height: 100vh;
+
+}
+.container{
+    background: rgba(0,0, 0, 0.6);
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+    box-shadow: 0 0 20px rgba(0,0, 0, 0.5);
+
+}
+h1{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.change-inf0-btn{
+    background:#ffcc00 ;
+    color: aliceblue;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration:none;
+    font-weight: bold;
+
+}
+.menu{
+    text-align: center;
+}
+.btn{
+    display: block;
+    background:#ffcc00 ;
+    color: #003366;
+    padding: 15px;
+    margin:15px auto ;
+    width: 60%;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+.back-btn{
+    display: block;
+    color: aquamarine;
+    margin: 20px 0;
+    text-decoration: none;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th,td{
+    border: 1px solid #ffcc00;
+    padding: 12px;
+    text-align: left;
+}
+th{
+    background:#003366 ;
+}
+.action-button{
+    text-align: center;
+    margin-top: 30px;
+}
+.action-button,.reject-btn{
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    color: azure;
+    cursor: pointer;
+    margin: 0 10px;
+}
+.approve-btn{
+    background: green;
+}
+.reject-btn{
+    background: red;
+}
+form label{
+    display: block;
+    margin: 15px 0 5px;
+}
+form input, form textarea, form select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.logout-section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.logout {
+    background: #f44336;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
