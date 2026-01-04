@@ -14,7 +14,7 @@
     <?php if(isset($message)):?>
         <p class="message"><?php echo $message;?> </p>
     <?php endif;?>
-    <form id="registerForm" method="POST" action="SmartCityHub/Citizen/MVC/php/register_controller.php">
+    <form id="registerForm" method="POST" action="../php/register_controller.php">
         <label>First Name </label>
         <input type="text" name="first_name" required>
         <label>Last Name </label>

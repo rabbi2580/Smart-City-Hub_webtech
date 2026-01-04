@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "SmartCityHub/Citizen/MVC/db/db_connection.php";
+include "../db/db_connection.php";
 $message='';
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $first_name = trim($_POST['first_name']);
@@ -11,19 +11,21 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $id_number = trim($_POST['id_number']);
     $phone = trim($_POST['phone']);
     $location = trim($_POST['location']);
-    if($password!==$confirm_password){
+    $phone_clean=preg_replace('/\D/', '', $phone);
+    if (strlen($phone_clean)!==11){
+        $message='Phone number must be 11 digit ';
+    }  elseif($password!==$confirm_password){
         $message="Pass do not mathched";
-
     }
-    elseif(strlen($password)<8)
+       elseif(strlen($password)<8)
     {
         $message="Pass must be > 8 characters";
 
 
 
     }
-    else{
-        try{
+        else{
+          try{
             $check=$pdo->prepare("SELECT id FROM users WHERE username=? OR id_number=?");
             $check->execute([$username,$id_number]);
             if($check->rowCount()>0){
@@ -48,5 +50,5 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
         }
     }
-include "SmartCityHub/Citizen/MVC/html/register.php"
+include '../html/register.php';
 ?>
