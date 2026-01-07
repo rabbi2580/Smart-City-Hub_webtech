@@ -19,3 +19,18 @@
         <th>Comment</th>
         <th>Action</th>
       </tr>
+<tr>
+    <td>101</td>
+    <td>Broken street light near park</td>
+<td?<img src="" alt="Broken street light"></td>
+<td>Zone 4</td>
+<td>Pending</td>
+<td>textarea rows="2" placeholder="Add commment.."></textarea></td>
+<td>
+<button class="btn btn-Valid">Mark Valid</button><br>
+<button class="btn btn-Invalid">Mark InValid</button><br>
+<button class="btn btn-Forward">Forward to secretary</button><br>
+<button class="btn btn-Comment">Save comment</button><br>
+<button class="btn btn-View-History">View History</button><br>
+</td>
+</tr>
