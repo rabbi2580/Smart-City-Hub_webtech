@@ -166,5 +166,42 @@ textarea {
 .btn-comment:hover, .btn-view-history:hover {
   background-color: darkcyan;
 }
+td {
+  text-align: center;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+td img {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+}
+
+textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-top: 5px;
+}
+
+.btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 5px;
+}
+
+.btn-view-history {
+  background-color: teal;
+}
+
+.btn-view-history:hover {
+  background-color: darkcyan;
+}
 
 
