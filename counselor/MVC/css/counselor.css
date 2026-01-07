@@ -44,3 +44,63 @@ textarea {
   border: 1px solid red;
   margin-top: 5px;
 }
+td{
+    text-align:center;
+    padding:10px;
+    vertical-align:middle;
+
+}
+td img{
+    width: 70px;
+    height: auto;
+    border-radius: 10px;
+}
+textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid white;
+  margin-top: 5px;
+}
+.btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 5px;
+}
+.btn-valid {
+  background-color: lightgreen;
+}
+
+.btn-valid:hover {
+  background-color: lightgreen;
+}
+
+.btn-invalid {
+  background-color: red;
+}
+
+.btn-invalid:hover {
+  background-color: red;
+}
+
+.btn-forward {
+  background-color: yellow;
+  color: #212529;
+}
+
+.btn-forward:hover {
+  background-color:yellow;
+}
+
+.btn-comment, .btn-view-history {
+  background-color: blue;
+}
+
+.btn-comment:hover, .btn-view-history:hover {
+  background-color: blue;
+}
+
