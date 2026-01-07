@@ -34,3 +34,18 @@
 <button class="btn btn-View-History">View History</button><br>
 </td>
 </tr>
+<tr>
+ <td>102</td>
+  <td>Garbage not collected in area</td>
+<td><img src="garbage.jpg" alt="Garbage pile"></td>
+<td>Zone 2</td>
+ <td>Pending</td>
+ <td><textarea rows="2" placeholder="Add comment..."></textarea></td>
+ <td>
+<button class="btn btn-valid">Mark Valid</button><br>
+<button class="btn btn-invalid">Mark Invalid</button><br>
+<button class="btn btn-forward">Forward to Secretary</button><br>
+ <button class="btn btn-comment">Save Comment</button><br>
+  <button class="btn btn-view-history">View History</button>
+ </td>
+ </tr>
