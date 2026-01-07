@@ -49,3 +49,16 @@
   <button class="btn btn-view-history">View History</button>
  </td>
  </tr>
+  <tr>
+<td>103</td>
+<td>Pothole on main road</td>
+<td><img src="pothole.jpg" alt="Pothole"></td>
+ <td>Zone 4</td>
+<td>Valid (Forwarded)</td>
+<td>Urgent repair needed.</td>
+ <td>
+ <button class="btn btn-view-history">View History</button>
+ </td>
+ </tr>
+ </table>
+  </div>
