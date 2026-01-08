@@ -1,14 +1,25 @@
+/* Container styling */
 .container {
   width: 90%;
   margin: 30px auto;
   background: white;
   padding: 20px;
-  border-radius: 10px;}
-  h2 {
+  border-radius: 10px;
+}
+
+/* Headings */
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+h2 {
   color: #333;
   text-align: center;
   margin-bottom: 20px;
 }
+
+/* Table styling */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -20,7 +31,7 @@ table, th, td {
 }
 
 th {
-  background-color:blue;
+  background-color: blue;
   color: white;
   padding: 10px;
 }
@@ -37,85 +48,7 @@ td img {
   border-radius: 8px;
 }
 
-textarea {
-  width: 100%;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid red;
-  margin-top: 5px;
-}
-td{
-    text-align:center;
-    padding:10px;
-    vertical-align:middle;
-
-}
-td img{
-    width: 70px;
-    height: auto;
-    border-radius: 10px;
-}
-textarea {
-  width: 100%;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid white;
-  margin-top: 5px;
-}
-.btn {
-  padding: 8px 15px;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  font-size: 14px;
-  margin: 5px;
-}
-.btn-valid {
-  background-color: lightgreen;
-}
-
-.btn-valid:hover {
-  background-color: lightgreen;
-}
-
-.btn-invalid {
-  background-color: red;
-}
-
-.btn-invalid:hover {
-  background-color: red;
-}
-
-.btn-forward {
-  background-color: yellow;
-  color: #212529;
-}
-
-.btn-forward:hover {
-  background-color:yellow;
-}
-
-.btn-comment, .btn-view-history {
-  background-color: blue;
-}
-
-.btn-comment:hover, .btn-view-history:hover {
-  background-color: blue;
-}
-/*problem 2 */
-td {
-  text-align: center;
-  padding: 10px;
-  vertical-align: middle;
-}
-
-td img {
-  width: 80px;
-  height: auto;
-  border-radius: 8px;
-}
-
+/* Textarea styling */
 textarea {
   width: 100%;
   padding: 8px;
@@ -124,6 +57,7 @@ textarea {
   margin-top: 5px;
 }
 
+/* Button styling */
 .btn {
   padding: 8px 15px;
   border: none;
@@ -134,72 +68,37 @@ textarea {
   margin: 5px;
 }
 
+/* Valid button */
 .btn-valid {
   background-color: green;
 }
-
 .btn-valid:hover {
   background-color: darkgreen;
 }
 
+/* Invalid button */
 .btn-invalid {
   background-color: red;
 }
-
 .btn-invalid:hover {
   background-color: darkred;
 }
 
+/* Forward button */
 .btn-forward {
   background-color: gold;
   color: black;
 }
-
 .btn-forward:hover {
   background-color: orange;
 }
 
-.btn-comment, .btn-view-history {
-  background-color: teal;
-}
-
-.btn-comment:hover, .btn-view-history:hover {
-  background-color: darkcyan;
-}
-td {
-  text-align: center;
-  padding: 10px;
-  vertical-align: middle;
-}
-
-td img {
-  width: 80px;
-  height: auto;
-  border-radius: 8px;
-}
-
-textarea {
-  width: 100%;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid gray;
-  margin-top: 5px;
-}
-
-.btn {
-  padding: 8px 15px;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  font-size: 14px;
-  margin: 5px;
-}
-
+/* Comment and View History buttons */
+.btn-comment,
 .btn-view-history {
   background-color: teal;
 }
-
+.btn-comment:hover,
 .btn-view-history:hover {
   background-color: darkcyan;
 }
