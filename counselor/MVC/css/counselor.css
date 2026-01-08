@@ -4,6 +4,33 @@
       font-family: "Segoe UI", sans-serif;
       background-color: whitesmoke;
     }
+     header {
+      background-color: dodgerblue;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    .user-info {
+      font-size: 14px;
+    }
+
+    .user-info a {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+    }
+
+    .user-info a:hover {
+      text-decoration: underline;
+    }
+
     .menu {
       background-color: steelblue;
       padding: 10px;
@@ -123,3 +150,10 @@ textarea {
 .btn-view-history:hover {
   background-color: darkcyan;
 }
+footer {
+      margin-top: 40px;
+      text-align: center;
+      color: gray;
+      font-size: 14px;
+      padding: 10px;
+    }
