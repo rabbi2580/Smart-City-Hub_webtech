@@ -11,9 +11,13 @@
 
 <div class="menu">
   
+  <div class="menu">
+  
   <a href="#">All Complaints</a>
   <a href="#">Pending Verification</a>
   <a href="#">Valid Complaints</a>
+
+</div>
   
 </div>
 

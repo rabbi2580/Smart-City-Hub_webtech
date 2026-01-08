@@ -1,4 +1,9 @@
 /* Container styling */
+ body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-color: whitesmoke;
+    }
 .container {
   width: 90%;
   margin: 30px auto;
