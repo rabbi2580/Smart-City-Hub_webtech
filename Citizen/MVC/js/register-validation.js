@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded",function(){
             alert('Password must be at least 8 char')
             return;
         }
+        
         const phoneValue=phone.value.replace(/\D/g,'');
         if(phoneValue.length!==11){
             e.preventDefault();
