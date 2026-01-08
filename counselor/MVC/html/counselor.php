@@ -14,8 +14,7 @@
   <div class="menu">
   
  <a href="allcomplaint.php">All Complaints</a>
-
-  <a href="#">Pending Verification</a>
+<a href="verification.php">Pending Verification</a>
   <a href="#">Valid Complaints</a>
 
 </div>

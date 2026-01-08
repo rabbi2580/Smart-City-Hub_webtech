@@ -2,9 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Pending Verification</title>
-
+<link rel="stylesheet" href="../css/verification.css">
 <body>
 <header>
   <h2>Pending Verification Complaints</h2>
