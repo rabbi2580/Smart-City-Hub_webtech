@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <title>Counselor Dashboard | Smart City Hub</title>
+<link rel="stylesheet" href="../css/counselor.css">
+
 </head>
 <body>
  <h1>Smart City Hub – Counselor Dashboard</h1>
