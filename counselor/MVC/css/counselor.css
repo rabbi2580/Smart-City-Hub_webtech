@@ -1,0 +1,205 @@
+.container {
+  width: 90%;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;}
+  h2 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid pink;
+}
+
+th {
+  background-color:blue;
+  color: white;
+  padding: 10px;
+}
+
+td {
+  text-align: center;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+td img {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+}
+
+textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid red;
+  margin-top: 5px;
+}
+td{
+    text-align:center;
+    padding:10px;
+    vertical-align:middle;
+
+}
+td img{
+    width: 70px;
+    height: auto;
+    border-radius: 10px;
+}
+textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid white;
+  margin-top: 5px;
+}
+.btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 5px;
+}
+.btn-valid {
+  background-color: lightgreen;
+}
+
+.btn-valid:hover {
+  background-color: lightgreen;
+}
+
+.btn-invalid {
+  background-color: red;
+}
+
+.btn-invalid:hover {
+  background-color: red;
+}
+
+.btn-forward {
+  background-color: yellow;
+  color: #212529;
+}
+
+.btn-forward:hover {
+  background-color:yellow;
+}
+
+.btn-comment, .btn-view-history {
+  background-color: blue;
+}
+
+.btn-comment:hover, .btn-view-history:hover {
+  background-color: blue;
+}
+/*problem 2 */
+td {
+  text-align: center;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+td img {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+}
+
+textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-top: 5px;
+}
+
+.btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 5px;
+}
+
+.btn-valid {
+  background-color: green;
+}
+
+.btn-valid:hover {
+  background-color: darkgreen;
+}
+
+.btn-invalid {
+  background-color: red;
+}
+
+.btn-invalid:hover {
+  background-color: darkred;
+}
+
+.btn-forward {
+  background-color: gold;
+  color: black;
+}
+
+.btn-forward:hover {
+  background-color: orange;
+}
+
+.btn-comment, .btn-view-history {
+  background-color: teal;
+}
+
+.btn-comment:hover, .btn-view-history:hover {
+  background-color: darkcyan;
+}
+td {
+  text-align: center;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+td img {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+}
+
+textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-top: 5px;
+}
+
+.btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 5px;
+}
+
+.btn-view-history {
+  background-color: teal;
+}
+
+.btn-view-history:hover {
+  background-color: darkcyan;
+}
