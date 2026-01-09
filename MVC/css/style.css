@@ -1,0 +1,247 @@
+:root {
+    --bg: #f3f6fb;
+    --surface: #ffffff;
+    --text: #0f172a;
+    --muted: #475569;
+    --border: #d7e0ee;
+
+    --navy: #0b2d4d;
+    --navy2: #0a2540;
+    --accent: #b71c1c;
+
+    --shadow: 0 10px 28px rgba(15, 23, 42, 0.10);
+    --radius: 14px;
+
+    --max: 980px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.45;
+}
+
+a {
+    color: #0b3b7a;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+.gov-header {
+    background: linear-gradient(180deg, var(--navy), var(--navy2));
+    color: #fff;
+    border-bottom: 4px solid rgba(255, 255, 255, 0.10);
+}
+
+.gov-header .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.gov-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.seal {
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.brand .title {
+    font-size: 16px;
+    font-weight: 700;
+}
+.brand .subtitle {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.gov-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: right;
+    font-size: 13px;
+    opacity: 0.95;
+}
+
+.container {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 22px 18px 50px;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.card-head {
+    padding: 18px 18px 10px;
+    border-bottom: 1px solid var(--border);
+    background: #fbfdff;
+}
+
+.card-head h2 {
+    margin: 0 0 6px;
+    font-size: 22px;
+}
+
+.card-head p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.card-body {
+    padding: 18px;
+}
+
+.auth-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 18px;
+}
+
+@media (min-width: 860px) {
+  .auth-grid {
+        grid-template-columns: 520px;
+        justify-content: center;
+  }
+}
+
+label {
+    display: block;
+    margin: 12px 0 6px;
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    color: var(--text);
+    outline: none;
+    font-size: 14px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: rgba(11, 45, 77, 0.55);
+    box-shadow: 0 0 0 3px rgba(11, 45, 77, 0.12);
+}
+
+.actions {
+    margin-top: 16px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: #f8fafc;
+    color: var(--text);
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn:hover {
+    text-decoration: none;
+    filter: brightness(0.98);
+}
+
+.btn-primary {
+    background: var(--navy);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.05);
+}
+
+.btn-logout {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+}
+.btn-logout:hover {
+    text-decoration: none;
+    filter: brightness(1.05);
+}
+
+.notice {
+    margin-top: 14px;
+    padding: 12px;
+    border-radius: 12px;
+    background: #f6f8fc;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.alert {
+    margin-bottom: 12px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(183, 28, 28, 0.25);
+    background: rgba(183, 28, 28, 0.06);
+    color: #7a1f1f;
+    font-size: 13px;
+}
+
+h1, h2, h3 {
+    letter-spacing: 0.1px;
+}
