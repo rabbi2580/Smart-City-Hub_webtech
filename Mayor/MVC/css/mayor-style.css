@@ -1,0 +1,117 @@
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: rgb(156, 131, 87);
+    color: rgb(224, 232, 238);
+    padding: 0;
+    min-height: 100px;
+
+}
+.container{
+    background: rgba(0,0, 0, 0.6);
+    padding: 40px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 900px;
+    margin: 40px auto;
+    box-shadow: 0 0 20px rgba(0,0, 0, 0.5);
+
+}
+h1{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.change_info_button{
+    background:#9d967b ;
+    color: wheat;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: wavy;
+    font-weight: bold;
+
+}
+.menu{
+    text-align: center;
+}
+.btn{
+    display: block;
+    background:#ffcc00 ;
+    color: #000000;
+    padding: 15px;
+    margin:15px auto ;
+    width: 60%;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: wavy;
+    font-weight: bold;
+    font-size: 22px;
+}
+.back-btn{
+    display: block;
+    color: rgb(214, 200, 200);
+    margin: 20px 0;
+    text-decoration: none;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th,td{
+    border: 1px solid #ffcc00;
+    padding: 12px;
+    text-align: left;
+}
+th{
+    background:#677f97 ;
+}
+.action-button{
+    text-align: center;
+    margin-top: 30px;
+}
+.approve-btn,.reject-btn{
+    padding: 12px 30px;
+    border: none;
+    border-radius: 18px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 22px;
+    font-weight: bold;
+}
+.approve-btn{
+    background: green;
+    font-size: 22px;
+}
+.reject-btn{
+    background: red;
+}
+form label{
+    display: block;
+    margin: 15px 0 5px;
+}
+form input, form textarea, form select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.logout-section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.logout {
+    background: #f44336;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
