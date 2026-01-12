@@ -8,15 +8,15 @@
 <body>
     <div class ="container">
         <div class ="header">
-            <h1>Welcome,Mayor</h1>
-            <a href="change_information.php" class="change_info_button">Change Information</a>
+            <h1>Welcome,Mayor<?php echo htmlspecialchars($username); ?></h1>
+            <a href="change_information.php" class="change_info_button"> Change Information </a>
         </div>
         <p>This is your Smart City Hub control panel</p> 
         
         <div class="menu">
             <a href="view_all_complaints.php" class="btn">View All Complaints</a>
             <a href="view_statistics.php" class="btn">View Statistics </a>
-            <a href="send_rewards.php" class="btn">Send Rewards</a>
+           
             <a href="final_approvals.php" class="btn"> Final Approvals </a>
 
         </div>
