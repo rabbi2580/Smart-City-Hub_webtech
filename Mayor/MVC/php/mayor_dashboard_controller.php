@@ -6,3 +6,5 @@ if(!isset($_SESSION['user_id'])||$_SESSION['role']!=='mayor'){
     exit;
 }
 $username=$_SESSION['username']??'Mayor';
+include '../html/mayor_dashboard.php';
+?>
