@@ -11,11 +11,11 @@
         <h1>Complaint Statistics</h1>
         <a href="mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
         <div class="states">
-            <p><strong>Total Complaints:</strong>150</p>
-            <p><strong>Completed:</strong>120</p>
-            <p><strong>Progress:</strong>0</p>
-            <p><strong>Pending </strong>0</strong></p>
-            <p><strong>Rejected:</strong>30</p>
+            <p><strong>Total Complaints:</strong><?php echo $total; ?></p>
+            <p><strong>Completed:</strong><?php echo $completed; ?></p>
+        
+            <p><strong>Pending </strong><?php echo $pending; ?></strong></p>
+            <p><strong>Rejected:</strong><?php echo $rejected; ?></p>
 
 
         </div>
