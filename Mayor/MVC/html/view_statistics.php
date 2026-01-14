@@ -1,3 +1,10 @@
+<?php
+
+if (!isset($total))     $total = 0;
+if (!isset($completed)) $completed = 0;
+if (!isset($pending))   $pending = 0;
+if (!isset($rejected))  $rejected = 0;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,12 +17,12 @@
     <div class="container">
         <h1>Complaint Statistics</h1>
         <a href="mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
-        <div class="states">
-            <p><strong>Total Complaints:</strong><?php echo $total; ?></p>
-            <p><strong>Completed:</strong><?php echo $completed; ?></p>
+        <div class="stats">
+            <p><strong>Total Complaints:</strong> <?php echo $total; ?></p>
+            <p><strong>Completed:</strong> <?php echo $completed; ?></p>
         
-            <p><strong>Pending </strong><?php echo $pending; ?></strong></p>
-            <p><strong>Rejected:</strong><?php echo $rejected; ?></p>
+            <p><strong>Pending </strong> <?php echo $pending; ?></p>
+            <p><strong>Rejected:</strong> <?php echo $rejected; ?></p>
 
 
         </div>

@@ -5,4 +5,4 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'mayor') {
     header('Location: ../../../Citizen/MVC/html/login.php');
     exit;
 }
-$sql=""
+$sql="SELECT c.id, c.title, "
