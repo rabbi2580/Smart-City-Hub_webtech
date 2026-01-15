@@ -35,6 +35,12 @@ require_once __DIR__ . "/../php/auth.php";
             <h2>Welcome, <?php echo htmlspecialchars($_SESSION["user_name"]); ?>!</h2>
             <p>Use the options below to submit complaints and track your requests.</p>
         </div>
+        
+        <div style="margin-top: 6px;">
+            <a class="btn" style="font-size:13px; padding:6px 10px;" href="profile_edit.php">
+                Edit profile information
+            </a>
+        </div>
 
         <div class="card-body">
             <div class="actions">
