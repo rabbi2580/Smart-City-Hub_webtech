@@ -11,7 +11,7 @@ unset($_SESSION['reg_message']);
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Citizen Registration </title>
         <link rel="stylesheet" href="../css/register-style.css">
-        <script src="../js/register-validation.js" defer></script>
+        <script src="../js/register_validation.js" defer></script>
 
     </head>
     <body>
