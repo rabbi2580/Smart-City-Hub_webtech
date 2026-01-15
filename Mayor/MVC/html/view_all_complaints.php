@@ -10,6 +10,9 @@
     <div class="container">
         <h1>All Complaints</h1>
         <a href="mayor_dashboard.php" class="back-btn"><- Back To Dashboard</a>
+        <?php if(empty($complaints)):?>
+            <p>No complaint found.</p>
+        <?php else:?>
         <table>
             <thead>
                 <tr>
@@ -22,16 +25,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Broken Streetlight</td>
-                    <td>Streetlight</td>
-                    <td>Completed</td>
-                    <td>Mohakhali</td>
-                </tr>
-
+                <?php foreach($complaints as $c): ?>
+                    <tr>
+                        <td><?php echo $c['id']; ?></td>
+                        <td><?php echo htmlspecialchars($c['title']);  ?> </td>
+                        <td><?php echo htmlspecialchars($c['type']);  ?> </td>
+                        <td><?php echo htmlspecialchars($c['status']);  ?> </td>
+                        <td><?php echo htmlspecialchars($c['citizen_name']);  ?> </td>
+                        <td><?php echo htmlspecialchars($c['location']);  ?> </td>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
+        <?php endif; ?>
     </div>
 </body>
 </html>

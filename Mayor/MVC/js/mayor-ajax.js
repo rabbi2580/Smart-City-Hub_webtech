@@ -1,4 +1,4 @@
-$(document).ready(function()){
+$(document).ready(function(){
     $('#approveSelected').click(function(){
         var selected=[];
         $('input[name="selected[]"]:checked').each(function(){
@@ -32,5 +32,36 @@ $(document).ready(function()){
             });
         }
     });
+    $('#rejectSelected').click(function(){
+        var selected=[];
+        $('ínput[name="selected[]"]:checked').each(function(){
+            selected.push($(this).val());
+        });
+        if(selected.length===0){
+            alert("please select one comoplaint");
+            return;
+        }
+        if(confirm("are u sure u want to reject this?")){
+            $ajax({
+                url:'../php/final_approve_ajax.php',
+                type:'POST',
+                data:{ action:'reject',selected:selected},
+                success:function(response){
+                    $('#message').text(response);
+                    selected.forEach(function(id){
+                        $('tr[data-id"'+id+'"]').remove();
+                    });
+                    if($('#tableBody tr').length===0){
+                        $('#tableBody').html('<tr><td colspan="6">No complains ready for final approveal</td></tr>');
+                    
+                    }
+                },
+                error:function(){
+                    alert("Error processing rejection.");
+                }
+            });
+        }
+
+    });
     
-}
+});

@@ -10,15 +10,12 @@
     <div class="container">
         <h1>Send Rewards Message</h1>
         <a href="mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
-        <form>
-            <select>
-                <option>1- Broken Streetlight</option>
-                <option>2- Garbage Pile</option>
-                <label>Reward Message</label>
-            </select>
-                <textarea rows="5"> Thank you for your valuable report </textarea>
-                <button type="submit"> Send Reward</button>
-            
+        <form method="POST">
+            <label>selected Complaints</label>
+            <input type="text" readonly value="">
+            <label>Reward Message</label>
+            <textarea name="reward_message" rows="5" required> Thank you for ur report . your issue will be solved in asap</textarea>
+            <button type="submit">Send reward</button>    
         </form>
     </div>
 </body>

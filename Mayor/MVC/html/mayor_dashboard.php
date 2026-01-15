@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head> 
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mayor Dashboard </title>
     <link rel="stylesheet" href="../css/mayor-style.css">
@@ -8,8 +9,8 @@
 <body>
     <div class ="container">
         <div class ="header">
-            <h1>Welcome,Mayor<?php echo htmlspecialchars($username); ?></h1>
-            <a href="change_information.php" class="change_info_button"> Change Information </a>
+            <h1>Welcome,Mayor</h1>
+            <a href="change_information.php" class="change_info_button">Change Profile Information</a>
         </div>
         <p>This is your Smart City Hub control panel</p> 
         
