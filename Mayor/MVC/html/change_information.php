@@ -10,21 +10,14 @@
     <div class="container">
         <h1>Change Your Information</h1>
         <a href="mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
-        <form>
-            <label>Name</label>
-            <input type="text" value="Mayor">
-            <label>Phone</label>
-            <input type="text" value="01300000000">
-            <label>Location</label>
-            <input type="text" value="Dhaka">
-            <label>New Password </label>
-            <input type="password">
-            <label>Confirm Password</label>
-            <input type="password">
-            <button type="submit">Update Information</button>
+        <?php if($success): ?>
+            <p style="color: aqua;"><?php echo $success; ?></p>
+        <?php endif ?>
+        <?php if ($error): ?>
+            <p style="color: red;"><?php echo $error; ?></p>
+        <?php endif; ?>
+        
 
-            
-        </form>
     </div>
 </body>
 </html>
