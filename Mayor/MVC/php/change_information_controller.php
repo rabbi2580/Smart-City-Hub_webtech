@@ -21,5 +21,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     }
     else{
-        
+        $sql="UPDATE users SET name ='$name', phone='$phone', location='$location'";
+        if($password){
+            $hashed=password_hash($password,PASSWORD_DEFAULT);
+            $sql.=",password='$hashed'";
+
+        }
+        $sql.="WHERE id=$user_id";
+        if(mysqli_query($conn,$sql)){
+            $success ="Information update successfully";
+
+        }
+        else{
+            $error="Error". mysqli_errno($conn);
+        }
     }
+}
+include '../html/change_information.php';
+?>
