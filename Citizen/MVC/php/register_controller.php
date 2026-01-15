@@ -1,9 +1,10 @@
 <?php
 session_start();
-include "../../../../db.php";
+include "../../../db.php";
 $_SESSION['reg_message']='';
 $_SESSION['reg_form_data']=$_POST;
-$success=$error="";
+$error='';
+
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 
@@ -41,18 +42,22 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                 $sql="INSERT INTO users (username, password, name, id_number, phone, location, role) 
                     VALUES ('$username', '$hashed', '$full_name', '$id_number', '$phone_clean', '$location', 'citizen')";
                 if(mysqli_query($conn,$sql)){
-                    $success="Registration successful";
-                
+                    $_SESSION['reg_message']="Registration successful";
+                    $_SESSION['reg_form_data']=[];
                 }
                 else{
                     $error="Error". mysqli_error($conn);
+                    
                 }
 
 
             }
         }
-        $_SESSION['reg_message']=$success?$success:$error;
+        if($error){
+            $_SESSION['reg_message']=$error;
+        }
     }
-$message=$success?'<p style ="color:green;">'. $success . '</p>': ($error ? '<p style="color:red;">'. $error . '</p>' : '');
-include '../html/register.php';
+
+header("Location:../html/register.php");
+exit;
 ?>

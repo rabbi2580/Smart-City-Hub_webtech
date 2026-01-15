@@ -16,10 +16,14 @@ unset($_SESSION['reg_message']);
     </head>
     <body>
     <div class="container">
-        <h2>Citizen Registration </h2>
-        <div id="message" style="padding: 15px; margin: 20px 0; border-radius: 6px;">
-            <?php echo $message; ?>
-        </div>
+        <h1>Citizen Registration </h1>
+        <?php if ($message): ?>
+            <div style="padding:15px; margin:20px 0; border-radius:6px; 
+                        background:<?php echo strpos($message, 'successful') !== false ? '#e8f5e9' : '#ffebee'; ?>; 
+                        color:<?php echo strpos($message, 'successful') !== false ? '#2e7d32' : '#c62828'; ?>;">
+                <?php echo $message; ?>
+            </div>
+        <?php endif; ?>
         <form method="POST" action="../php/register_controller.php"> 
         <label>First Name </label>
         <input type="text" name="first_name" value="<?php echo htmlspecialchars($form_data['first_name']??''); ?>" required>
@@ -32,11 +36,11 @@ unset($_SESSION['reg_message']);
         <label>Confirm password </label>
         <input type="password" name="confirm_password" required><br>
         <label>ID Number</label>
-        <input type="text" name="id_number" value="<?php echo htmlspecialchars($form_data['id_number']??''); ?>" required><br>
+        <input type="text" name="id_number" value="<?php echo htmlspecialchars($form_data['id_number']??''); ?>" required>
         <label>Phone Number</label>
-        <input type="text" name="phone" value="<?php echo htmlspecialchars($form_data['phone']??''); ?>" required><br>
+        <input type="text" name="phone" value="<?php echo htmlspecialchars($form_data['phone']??''); ?>" required>
         <label>Location</label>
-        <input type="text" name="id_number" value="<?php echo htmlspecialchars($form_data['location']??''); ?>" required><br>
+        <input type="text" name="location" value="<?php echo htmlspecialchars($form_data['location']??''); ?>" required>
         <button type="submit"> Register </button>
     
     </form>
