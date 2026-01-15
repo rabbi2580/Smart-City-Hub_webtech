@@ -4,6 +4,7 @@ include "../../../../db.php";
 $success=$error="";
 $form_data=$_POST;
 if($_SERVER["REQUEST_METHOD"]=="POST"){
+    
     $first_name = mysqli_real_escape_string($conn,trim($_POST['first_name'] ??''));
     $last_name = trim($_POST['last_name']);
     $username = trim($_POST['username']);
