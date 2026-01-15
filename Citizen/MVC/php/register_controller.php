@@ -4,53 +4,52 @@ include "../../../../db.php";
 $success=$error="";
 $form_data=$_POST;
 if($_SERVER["REQUEST_METHOD"]=="POST"){
-    
+
     $first_name = mysqli_real_escape_string($conn,trim($_POST['first_name'] ??''));
-    $last_name = trim($_POST['last_name']);
-    $username = trim($_POST['username']);
+    $last_name = mysqli_real_escape_string($conn,trim($_POST['last_name'] ??''));
+    $username = mysqli_real_escape_string($conn,trim($_POST['username'] ??''));
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
-    $id_number = trim($_POST['id_number']);
-    $phone = trim($_POST['phone']);
-    $location = trim($_POST['location']);
+    $id_number = mysqli_real_escape_string($conn,trim($_POST['id_number'] ??''));
+    $phone = mysqli_real_escape_string($conn,trim($_POST['phone'] ??''));
+    $location = mysqli_real_escape_string($conn,trim($_POST['location'] ??''));
     $phone_clean=preg_replace('/\D/', '', $phone);
     if (strlen($phone_clean)!==11){
-        $message='Phone number must be 11 digit ';
+        $error='Phone number must be 11 digit ';
     }  elseif($password!==$confirm_password){
-        $message="Pass do not mathched";
+        $error="Pass do not mathched";
     }
        elseif(strlen($password)<8)
     {
-        $message="Pass must be > 8 characters";
-
-
-
+        $error="Pass must be > 8 characters";
     }
+        elseif(empty($first_name)||empty($last_name)||empty($username)||empty($id_number)||empty($phone)||empty($location)){
+            $error="fillup all the box";
+        }
         else{
-          try{
-            $check=$pdo->prepare("SELECT id FROM users WHERE username=? OR id_number=?");
-            $check->execute([$username,$id_number]);
-            if($check->rowCount()>0){
-                $message="Username or ID is already Registerd";
+            $check_sql="SELECT id FROM users WHERE username='$username' OR id_number='$id_number'";
+            $check_result=mysqli_query($conn,$check_sql);
+            if(mysqli_num_rows($check_result)>0){
+                $error="username or id is already registered";
 
-            }
+            } 
             else{
-                $hashed = password_hash($password, PASSWORD_DEFAULT);
-                $full_name = $first_name . " " . $last_name;
+                $hashed=password_hash($password,PASSWORD_DEFAULT);
+                $full_name =$first_name." ". $last_name;
+                $sql="INSERT INTO users (username, password, name, id_number, phone, location, role) 
+                    VALUES ('$username', '$hashed', '$full_name', '$id_number', '$phone_clean', '$location', 'citizen')";
+                if(mysqli_query($conn,$sql)){
+                    $success="Registration successful";
+                
+                }
+                else{
+                    $error="Error". mysqli_error($conn);
+                }
 
-                $stmt = $pdo->prepare("INSERT INTO users (username, password, name, id_number, phone, location, role) 
-                                       VALUES (?, ?, ?, ?, ?, ?, 'citizen')");
-                $stmt->execute([$username, $hashed, $full_name, $id_number, $phone, $location]);
-                $message = "Registration successful! You can now login.";
+
             }
-             
-            }
-        catch(PDOException $e){
-            $message="Error:" . $e->getMessage(); 
-
-        }
-
         }
     }
+$message=$success?'<p style ="color:green;">'. $success . '</p>': ($error ? '<p style="color:red;">'. $error . '</p>' : '');
 include '../html/register.php';
 ?>
