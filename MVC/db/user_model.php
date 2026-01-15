@@ -58,3 +58,82 @@ function user_create_citizen(
 
     return $ok;
 }
+function user_find_by_id(int $id): ?array
+{
+    global $conn;
+
+    $stmt = $conn->prepare(
+        "SELECT username, name, id_number, phone, location, area 
+         FROM users WHERE id = ? LIMIT 1"
+    );
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+
+    $stmt->close();
+    return $user ?: null;
+}
+
+function user_update_profile(
+    int $id,
+    string $name,
+    string $phone,
+    string $location,
+    ?string $area
+): bool {
+    global $conn;
+
+    $stmt = $conn->prepare(
+        "UPDATE users 
+         SET name = ?, phone = ?, location = ?, area = ?
+         WHERE id = ?"
+    );
+
+    $stmt->bind_param("ssssi", $name, $phone, $location, $area, $id);
+    $ok = $stmt->execute();
+    $stmt->close();
+
+    return $ok;
+}
+
+function user_find_by_id(int $id): ?array
+{
+    global $conn;
+
+    $stmt = $conn->prepare(
+        "SELECT username, name, id_number, phone, location, area 
+         FROM users WHERE id = ? LIMIT 1"
+    );
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+
+    $stmt->close();
+    return $user ?: null;
+}
+
+function user_update_profile(
+    int $id,
+    string $name,
+    string $phone,
+    string $location,
+    ?string $area
+): bool {
+    global $conn;
+
+    $stmt = $conn->prepare(
+        "UPDATE users 
+         SET name = ?, phone = ?, location = ?, area = ?
+         WHERE id = ?"
+    );
+
+    $stmt->bind_param("ssssi", $name, $phone, $location, $area, $id);
+    $ok = $stmt->execute();
+    $stmt->close();
+
+    return $ok;
+}
