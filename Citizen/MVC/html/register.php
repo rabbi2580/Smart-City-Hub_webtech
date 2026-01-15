@@ -1,3 +1,9 @@
+<?php
+session_start();
+$message =$_SESSION['reg_message']??'';
+$form_data=$_SESSION['reg_form_data']??[];
+unset($_SESSION['reg_message']);
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,7 +14,7 @@
         <script src="../js/register-validation.js" defer></script>
 
     </head>
-<body>
+    <body>
     <div class="container">
         <h2>Citizen Registration </h2>
         <div id="message" style="padding: 15px; margin: 20px 0; border-radius: 6px;">
@@ -16,11 +22,11 @@
         </div>
         <form method="POST" action="../php/register_controller.php"> 
         <label>First Name </label>
-        <input type="text" name="first_name" value="<?php echo htmlspecialchars($form_data['first_name']??''); ?>" required><br>
+        <input type="text" name="first_name" value="<?php echo htmlspecialchars($form_data['first_name']??''); ?>" required>
         <label>Last Name </label>
-        <input type="text" name="last_name" value="<?php echo htmlspecialchars($form_data['last_name']??''); ?>" required><br>
+        <input type="text" name="last_name" value="<?php echo htmlspecialchars($form_data['last_name']??''); ?>" required>
         <label>Username </label>
-        <input type="text" name="username" value="<?php echo htmlspecialchars($form_data['username'] ?? ''); ?>" required><br><br>
+        <input type="text" name="username" value="<?php echo htmlspecialchars($form_data['username'] ?? ''); ?>" required>
         <label>Password</label>
         <input type="password" name="password" required><br>
         <label>Confirm password </label>

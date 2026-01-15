@@ -1,8 +1,10 @@
 <?php
 session_start();
 include "../../../../db.php";
+$_SESSION['reg_message']='';
+$_SESSION['reg_form_data']=$_POST;
 $success=$error="";
-$form_data=$_POST;
+
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     $first_name = mysqli_real_escape_string($conn,trim($_POST['first_name'] ??''));
@@ -49,6 +51,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
             }
         }
+        $_SESSION['reg_message']=$success?$success:$error;
     }
 $message=$success?'<p style ="color:green;">'. $success . '</p>': ($error ? '<p style="color:red;">'. $error . '</p>' : '');
 include '../html/register.php';
