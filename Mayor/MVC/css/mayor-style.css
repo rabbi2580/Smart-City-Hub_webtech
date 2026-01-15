@@ -11,9 +11,9 @@ body{
     padding: 40px;
     border-radius: 15px;
     width: 80%;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 40px auto;
-    box-shadow: 0 0 20px rgba(0,0, 0, 0.5);
+    box-shadow: 0 0 40px rgba(0,0, 0, 0.5);
 
 }
 h1{
@@ -27,8 +27,8 @@ h1{
     margin-bottom: 30px;
 }
 .change_info_button{
-    background:#9d967b ;
-    color: wheat;
+    background:#4d4730 ;
+    color: rgb(219, 189, 134);
     padding: 10px 20px;
     border-radius: 8px;
     text-decoration: wavy;
@@ -65,7 +65,7 @@ table{
 th,td{
     border: 1px solid #ffcc00;
     padding: 12px;
-    text-align: left;
+    text-align: center;
 }
 th{
     background:#677f97 ;
