@@ -73,5 +73,12 @@ require_once __DIR__ . "/../php/auth.php";
 
 </main>
 
+<ul>
+    <li><a href="../php/complaint_create_controller.php">Submit Complaint</a></li>
+    <li><a href="../php/complaint_list_controller.php">My Complaints</a></li>
+    <li><a href="../php/profile_update_controller.php">Edit Profile</a></li>
+    <li><a href="../php/logout.php">Logout</a></li>
+</ul>
+
 </body>
 </html>
