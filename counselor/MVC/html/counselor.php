@@ -2,7 +2,12 @@
 <html lang="en">
 <head>
 <title>Counselor Dashboard | Smart City Hub</title>
-
+<div class="user-info">
+    Welcome, Counselor John Doe |
+    <a href="profile.html">Manage Profile</a> |
+    <a href="change-password.html">Change Password</a> |
+    <a href="login.html">Logout</a>
+  </div>
 <link rel="stylesheet" href="../css/counselor.css">
 
 </head>
@@ -15,13 +20,10 @@
   
  <a href="allcomplaint.php">All Complaints</a>
 <a href="verification.php">Pending Verification</a>
-  <a href="#">Valid Complaints</a>
-
+<a href="valid.php">Valid Complaint</a>
+</div>  
 </div>
-  
-</div>
-
-  <div class="container">
+ <div class="container">
     <h2>Complaints Awaiting Verification / All Complaints in Your Area</h2>
     <p>View and manage complaints submitted by citizens in your zone. Mark as valid/invalid, add comments, and forward valid ones to the Secretary.</p>
 

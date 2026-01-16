@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="../css/valid.css">
 <title>Valid Complaints</title>
 </head>
 <body>
