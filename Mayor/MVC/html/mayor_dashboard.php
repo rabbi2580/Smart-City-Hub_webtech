@@ -10,7 +10,7 @@
     <div class ="container">
         <div class ="header">
             <h1>Welcome,Mayor</h1>
-            <a href="change_information.php" class="change_info_button">Change Profile Information</a>
+            <a href="\SmartCityHub\Mayor\MVC\php\change_information_controller.php" class="change_info_button">Change Profile Information</a>
         </div>
         <p>This is your Smart City Hub control panel</p> 
         
