@@ -1,19 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-<h2>Login</h2>
+<?php
+session_start();
+require_once __DIR__ . "/../db/user_model.php";
 
-<form method="post" action="../php/login_controller.php">
-    <input type="text" name="username" placeholder="Username"><br><br>
-    <input type="password" name="password" placeholder="Password"><br><br>
-    <button type="submit">Login</button>
-</form>
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    header("Location: ../html/login_view.php");
+    exit();
+}
 
-<p style="color:red;"><?php echo $error ?? ""; ?></p>
-<a href="register_view.php">Register</a>
-</body>
-</html>
+$username = trim($_POST["username"] ?? "");
+$password = $_POST["password"] ?? "";
+
+if ($username === "" || $password === "") {
+    header("Location: ../html/login_view.php?error=1");
+    exit();
+}
+
+$user = user_find_by_username($username);
+
+if (!$user || !password_verify($password, $user["password"])) {
+    header("Location: ../html/login_view.php?error=1");
+    exit();
+}
+
+session_regenerate_id(true);
+
+$_SESSION["user_id"] = $user["id"];
+$_SESSION["user_name"] = $user["name"];
+$_SESSION["user_role"] = $user["role"];
+
+header("Location: ../html/dashboard.php");
+exit();
