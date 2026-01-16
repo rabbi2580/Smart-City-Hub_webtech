@@ -1,4 +1,15 @@
-<!DOCTYPE html>
+  
+  <?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
+
+  
+  <!DOCTYPE html>
 <html lang="en">
 <head>
 <title>Counselor Dashboard | Smart City Hub</title>
