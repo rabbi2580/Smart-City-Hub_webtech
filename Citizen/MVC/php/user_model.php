@@ -1,27 +1,28 @@
 <?php
 require_once __DIR__ . "/../db/db.php";
 
-function complaint_create($user_id, $title, $description, $location) {
+function user_create($username, $email, $password_hash) {
     global $conn;
-
-    $sql = "INSERT INTO complaints (user_id, title, description, location)
-            VALUES (?, ?, ?, ?)";
-
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("isss", $user_id, $title, $description, $location);
+    $stmt = $conn->prepare(
+        "INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)"
+    );
+    $stmt->bind_param("sss", $username, $email, $password_hash);
     return $stmt->execute();
 }
 
-function complaint_get_by_user($user_id) {
+function user_find_by_username($username) {
     global $conn;
-
-    $sql = "SELECT * FROM complaints 
-            WHERE user_id = ? 
-            ORDER BY created_at DESC";
-
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $user_id);
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? LIMIT 1");
+    $stmt->bind_param("s", $username);
     $stmt->execute();
+    return $stmt->get_result()->fetch_assoc();
+}
 
-    return $stmt->get_result();
+function user_update_profile($id, $username, $email) {
+    global $conn;
+    $stmt = $conn->prepare(
+        "UPDATE users SET username = ?, email = ? WHERE id = ?"
+    );
+    $stmt->bind_param("ssi", $username, $email, $id);
+    return $stmt->execute();
 }

@@ -1,32 +1,26 @@
 <?php
 session_start();
-require_once "user_model.php";
+require_once __DIR__ . "/user_model.php";
 
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    header("Location: ../html/login.php");
-    exit();
+$error = "";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $username = trim($_POST["username"] ?? "");
+    $password = trim($_POST["password"] ?? "");
+
+    if ($username === "" || $password === "") {
+        $error = "All fields are required";
+    } else {
+        $user = user_find_by_username($username);
+        if (!$user || !password_verify($password, $user["password_hash"])) {
+            $error = "Invalid credentials";
+        } else {
+            $_SESSION["user_id"] = $user["id"];
+            $_SESSION["username"] = $user["username"];
+            header("Location: ../html/dashboard.php");
+            exit;
+        }
+    }
 }
 
-$username = trim($_POST["username"] ?? "");
-$password = $_POST["password"] ?? "";
-
-if ($username === "" || $password === "") {
-    header("Location: ../html/login.php?error=1");
-    exit();
-}
-
-$user = user_find_by_username($username);
-
-if (!$user || !password_verify($password, $user["password"])) {
-    header("Location: ../html/login.php?error=1");
-    exit();
-}
-
-session_regenerate_id(true);
-
-$_SESSION["user_id"] = $user["id"];
-$_SESSION["user_name"] = $user["name"];
-$_SESSION["user_role"] = $user["role"];
-
-header("Location: ../html/dashboard.php");
-exit();
+require_once __DIR__ . "/../html/login_view.php";
