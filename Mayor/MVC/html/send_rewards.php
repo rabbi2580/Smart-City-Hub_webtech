@@ -9,7 +9,18 @@
 <body>
     <div class="container">
         <h1>Send Rewards Message</h1>
-        <a href="mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
+        <a href="../mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
+        <?php if(isset($success)&& $success): ?>
+            <p style ="color:blue; font-weight:bold;text-align:center;margin:20px 0;padding:15px; background:rgba(0,255,0,0.2);border-radius:8px;">
+                <?= htmlspecialchars($success) ?>
+            </p>
+        <?php endif; ?>
+        <?php if(isset($error)&& $error): ?>
+            <p style ="color:red; font-weight:bold;text-align:center;margin:20px 0;padding:15px; background:rgba(255,0,0,0.2);border-radius:8px;">
+                <?= htmlspecialchars($error) ?>
+            </p>
+        <?php endif; ?>
+
         <?php if(empty($complaints_info)): ?>
             <p style ="color: orange; text-align:center;"> No complain selected ,please select a complain</p>
         <?php else: ?>
