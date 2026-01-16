@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Final Approvals - Mayor</title>
     <link rel="stylesheet" href="../css/mayor-style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src ="../js/mayor-ajax.js"></script>
 </head>
 <body>
     <div class ="container">
         <h1>Final Approvals</h1>
-        <a href="mayor_dashboard.php" class="back-btn"><- BAck to Dashboard</a>
+        <a href="/SmartCityHub/Mayor/MVC/html/mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
         <div id="message" style="color: antiquewhite; font-weight: bold; margin: 20px o; text-align: center;"></div>
         <?php if(empty($complaints)): ?>
             <p>No complaints ready for final approval. </p>

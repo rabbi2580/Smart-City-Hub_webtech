@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>Change Your Information</h1>
-        <a href="mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
+        <a href="/SmartCityHub/Mayor/MVC/html/mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
         <?php if($success): ?>
             <p style="color: aqua;"><?php echo $success; ?></p>
         <?php endif ?>
@@ -18,11 +18,11 @@
         <?php endif; ?>
         <form method="POST">
             <label>Name</label><br>
-            <input type="text" name="name" value="<?php echo htmlspecialchars($user['name']); ?>" required> <br>
+            <input type="text" name="name" value="<?php echo htmlspecialchars($user['name']??''); ?>" required> <br>
             <label>Phone</label><br>
-            <input type="text" name="phone" value="<?php echo htmlspecialchars($user['phone']); ?>" required> <br>
+            <input type="text" name="phone" value="<?php echo htmlspecialchars($user['phone']??''); ?>" required> <br>
             <label>Location</label><br>
-            <input type="text" name="location" value="<?php echo htmlspecialchars($user['location']); ?>" required> <br>
+            <input type="text" name="location" value="<?php echo htmlspecialchars($user['location']??''); ?>" required> <br>
             <label>New PAssword</label><br>
             <input type="password" name="password" > <br>
             <label>Confirm Password</label><br>

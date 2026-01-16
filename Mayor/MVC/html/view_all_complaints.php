@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>All Complaints</h1>
-        <a href="mayor_dashboard.php" class="back-btn"><- Back To Dashboard</a>
+        <a href="/SmartCityHub/Mayor/MVC/html/mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
         <?php if(empty($complaints)):?>
             <p>No complaint found.</p>
         <?php else:?>
@@ -20,6 +20,7 @@
                 <th>ID</th>
                 <th>Title</th>
                 <th>Type</th>
+                <th>Status</th>
                 <th>Citizen</th>
                 <th>Location</th>
                 </tr>
@@ -27,7 +28,7 @@
             <tbody>
                 <?php foreach($complaints as $c): ?>
                     <tr>
-                        <td><?php echo $c['id']; ?></td>
+                        <td><?= $c['id']; ?></td>
                         <td><?php echo htmlspecialchars($c['title']);  ?> </td>
                         <td><?php echo htmlspecialchars($c['type']);  ?> </td>
                         <td><?php echo htmlspecialchars($c['status']);  ?> </td>
