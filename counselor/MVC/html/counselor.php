@@ -73,7 +73,10 @@ $result = mysqli_query($conn, "
 
     <td><?php echo $row['location']; ?></td>
 
-    <td><?php echo $row['status']; ?></td>
+   <td class="status <?php echo $row['status']; ?>">
+    <?php echo $row['status']; ?>
+</td>
+
 
     <td>
         <form method="post" action="../Controller/saveComment.php">
@@ -86,17 +89,20 @@ $result = mysqli_query($conn, "
     <td>
         <form method="post" action="../Controller/markValid.php">
             <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-            <button>Mark Valid</button>
+            <button class="btn-valid">Mark Valid</button>
+
         </form>
 
         <form method="post" action="../Controller/markInvalid.php">
             <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-            <button>Mark Invalid</button>
+           <button class="btn-invalid">Mark Invalid</button>
+
         </form>
 
         <form method="post" action="../Controller/forward.php">
             <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-            <button>Forward</button>
+            <button class="btn-forward">Forward</button>
+
         </form>
     </td>
 </tr>
