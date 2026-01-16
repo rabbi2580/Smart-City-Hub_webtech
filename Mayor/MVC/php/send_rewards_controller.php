@@ -5,14 +5,13 @@ if (!isset($_SESSION['user_id'])||$_SESSION['role']!=='mayor'){
     header('Location: ../../../Citizen/MVC/html/login.php');
     exit;
 }
+$success =$error ="";
 $selected_ids=[];
+$complaints_info=[];
 if(isset($_GET['selected'])){
     $selected_ids=explode(',',$_GET['selected']);
     $selected_ids=array_map('intval',$selected_ids);
-    
-}
-$complaints_info=[];
-if(!empty($selected_ids)){
+    if(!empty($selected_ids)){
     $placeholders=implode(',',array_fill(0,count($selected_ids),'?'));
     $stmt = $conn->prepare("SELECT id, title FROM complaints WHERE id IN ($placeholders)");
     $stmt->bind_param(str_repeat('i', count($selected_ids)), ...$selected_ids);
@@ -21,6 +20,24 @@ if(!empty($selected_ids)){
     while ($row = $result->fetch_assoc()) {
         $complaints_info[] = $row;
     }
+    $stmt->close();
+}
+else{
+    $error="databse error" . $conn->error;
+}
+if($_SERVER['REQUEST_METHOD']==='POST'){
+    $posted_ids = explode(',', $_POST['selected_ids'] ?? '');
+    $posted_ids = array_filter(array_map('intval', $posted_ids));
+    $reward_message = trim($_POST['reward_message'] ?? '');
+
+    if (empty($posted_ids) || empty($reward_message)) {
+        $error = "No complaints selected or message is empty.";
+}
+else{
+    $success="rewards send successfull".count($posted_ids)."citizen";
+    header("Refresh: 2; url=../php/final_approvals_controller.php");
+}
+}
 }
 include '../html/send_rewards.php';
 ?>
