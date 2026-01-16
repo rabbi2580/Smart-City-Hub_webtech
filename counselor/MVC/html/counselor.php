@@ -99,11 +99,11 @@ $result = mysqli_query($conn, "
 
         </form>
 
-        <form method="post" action="../Controller/forward.php">
+       <!-- <form method="post" action="../Controller/forward.php">
             <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
             <button class="btn-forward">Forward</button>
 
-        </form>
+        </form>-->
     </td>
 </tr>
 <?php } ?>
