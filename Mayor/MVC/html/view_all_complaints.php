@@ -20,6 +20,7 @@
                 <th>ID</th>
                 <th>Title</th>
                 <th>Type</th>
+                <th>Status</th>
                 <th>Citizen</th>
                 <th>Location</th>
                 </tr>
@@ -27,7 +28,7 @@
             <tbody>
                 <?php foreach($complaints as $c): ?>
                     <tr>
-                        <td><?php echo $c['id']; ?></td>
+                        <td><?= $c['id']; ?></td>
                         <td><?php echo htmlspecialchars($c['title']);  ?> </td>
                         <td><?php echo htmlspecialchars($c['type']);  ?> </td>
                         <td><?php echo htmlspecialchars($c['status']);  ?> </td>

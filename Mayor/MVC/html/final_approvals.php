@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Final Approvals - Mayor</title>
     <link rel="stylesheet" href="../css/mayor-style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src ="../js/mayor-ajax.js"></script>
 </head>
 <body>
