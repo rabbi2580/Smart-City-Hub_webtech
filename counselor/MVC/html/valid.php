@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+  <?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
+
+  
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <link rel="stylesheet" href="../css/valid.css">
