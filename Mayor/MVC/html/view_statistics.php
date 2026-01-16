@@ -16,7 +16,7 @@ if (!isset($rejected))  $rejected = 0;
 <body>
     <div class="container">
         <h1>Complaint Statistics</h1>
-        <a href="mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
+        <a href="/SmartCityHub/Mayor/MVC/html/mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
         <div class="stats">
             <p><strong>Total Complaints:</strong> <?php echo $total; ?></p>
             <p><strong>Completed:</strong> <?php echo $completed; ?></p>

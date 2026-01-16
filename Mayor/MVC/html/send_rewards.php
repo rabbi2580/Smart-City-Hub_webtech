@@ -9,9 +9,9 @@
 <body>
     <div class="container">
         <h1>Send Rewards Message</h1>
-        <a href="../mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
+        <a href="/SmartCityHub/Mayor/MVC/html/mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
         <?php if(isset($success)&& $success): ?>
-            <p style ="color:blue; font-weight:bold;text-align:center;margin:20px 0;padding:15px; background:rgba(0,255,0,0.2);border-radius:8px;">
+            <p style ="color:black; font-weight:bold;text-align:center;margin:20px 0;padding:15px; background:rgba(0,255,0,0.2);border-radius:8px;">
                 <?= htmlspecialchars($success) ?>
             </p>
         <?php endif; ?>
@@ -32,7 +32,7 @@
                     <?php endforeach; ?>
                 </ul>
             </div>
-        <form method="POST" action="send_rewards_controller.php">
+        <form method="POST" action="">
             <input type="hidden" name="selected_ids" value="<?= htmlspecialchars(implode(',', array_column($complaints_info, 'id'))) ?>">
             <label>Reward Message</label>
             <textarea name="reward_message" rows="5" required style="width:100%;"> Thank you for ur report . your issue will be solved in asap</textarea>

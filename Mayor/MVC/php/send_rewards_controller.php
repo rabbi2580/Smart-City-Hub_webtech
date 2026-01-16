@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id'])||$_SESSION['role']!=='mayor'){
 $success =$error ="";
 $selected_ids=[];
 $complaints_info=[];
-if(isset($_GET['selected'])){
+if(isset($_GET['selected'])&&!empty($_GET['selected'])){
     $selected_ids=explode(',',$_GET['selected']);
     $selected_ids=array_map('intval',$selected_ids);
     if(!empty($selected_ids)){
@@ -34,8 +34,35 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         $error = "No complaints selected or message is empty.";
 }
 else{
-    $success="rewards send successfull".count($posted_ids)."citizen";
-    header("Refresh: 2; url=../php/final_approvals_controller.php");
+    $mayor_id = $_SESSION['user_id'];
+        $now = date('Y-m-d H:i:s');
+
+        
+        $placeholders = implode(',', array_fill(0, count($posted_ids), '?'));
+        $stmt = $conn->prepare("
+            UPDATE complaints 
+            SET reward_message = ?,
+                reward_sent_at = ?,
+                reward_sent_by = ?
+            WHERE id IN ($placeholders)
+        ");
+
+        if ($stmt) {
+            
+            $types = 'ssi' . str_repeat('i', count($posted_ids));
+            $stmt->bind_param($types, $reward_message, $now, $mayor_id, ...$posted_ids);
+
+            if ($stmt->execute()) {
+                $success = "Reward message sent successfully to " . $stmt->affected_rows . " citizen" . ($stmt->affected_rows === 1 ? '' : 's') . "!";
+                header("Refresh: 2; url=../php/final_approvals_controller.php");
+            } else {
+                $error = "Failed to save reward: " . $stmt->error;
+            }
+            $stmt->close();
+        }
+        else{
+            $error="prepare failed:".$conn->$error;
+        }
 }
 }
 }

@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>All Complaints</h1>
-        <a href="mayor_dashboard.php" class="back-btn"><- Back To Dashboard</a>
+        <a href="/SmartCityHub/Mayor/MVC/html/mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
         <?php if(empty($complaints)):?>
             <p>No complaint found.</p>
         <?php else:?>
