@@ -6,10 +6,11 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;
 }
+/*require "../db/coun.php";
+$result = mysqli_query($conn, "SELECT * FROM complaints");
+ */
 ?>
-
-  
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <title>Counselor Dashboard | Smart City Hub</title>
@@ -39,8 +40,70 @@ if (!isset($_SESSION['user_id'])) {
  <div class="container">
     <h2>Complaints Awaiting Verification / All Complaints in Your Area</h2>
     <p>View and manage complaints submitted by citizens in your zone. Mark as valid/invalid, add comments, and forward valid ones to the Secretary.</p>
+ <?php
+require $_SERVER['DOCUMENT_ROOT']."/Smart-City-Hub_webtech/counselor/MVC/db/coun.php";
 
-    <table>
+$result = mysqli_query($conn, "
+    SELECT id, title, description, location, image_path, status, counselor_comment
+    FROM complaints
+");
+?>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Description</th>
+    <th>Photo</th>
+    <th>Location</th>
+    <th>Status</th>
+    <th>Comment</th>
+    <th>Action</th>
+  </tr>
+
+<?php while ($row = mysqli_fetch_assoc($result)) { ?>
+<tr>
+    <td><?php echo $row['id']; ?></td>
+
+    <td><?php echo $row['description']; ?></td>
+
+    <td>
+        <?php if ($row['image_path']) { ?>
+            <img src="<?php echo $row['image_path']; ?>" width="80">
+        <?php } ?>
+    </td>
+
+    <td><?php echo $row['location']; ?></td>
+
+    <td><?php echo $row['status']; ?></td>
+
+    <td>
+        <form method="post" action="../Controller/saveComment.php">
+            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+            <textarea name="comment"><?php echo $row['counselor_comment']; ?></textarea>
+            <button type="submit">Save Comment</button>
+        </form>
+    </td>
+
+    <td>
+        <form method="post" action="../Controller/markValid.php">
+            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+            <button>Mark Valid</button>
+        </form>
+
+        <form method="post" action="../Controller/markInvalid.php">
+            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+            <button>Mark Invalid</button>
+        </form>
+
+        <form method="post" action="../Controller/forward.php">
+            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+            <button>Forward</button>
+        </form>
+    </td>
+</tr>
+<?php } ?>
+</table>
+
+   <!-- <table>
       <tr>
         <th>ID</th>
         <th>Description</th>
@@ -51,8 +114,7 @@ if (!isset($_SESSION['user_id'])) {
         <th>Action</th>
       </tr>
 
-
-<tr>
+ <tr>
     <td>101</td>
     <td>Broken street light near park</td>
 <td><img src="" alt="Broken street light"></td>
@@ -66,8 +128,7 @@ if (!isset($_SESSION['user_id'])) {
 <button class="btn btn-comment">Save comment</button><br>
 <button class="btn btn-view-history">View History</button><br>
 </td>
-</tr>
-
+</tr> 
 
 <tr>
  <td>102</td>
@@ -98,7 +159,8 @@ if (!isset($_SESSION['user_id'])) {
  <button class="btn btn-view-history">View History</button>
  </td>
  </tr>
- </table>
+
+ </table> -->
   </div>
   <footer>
   © 2026 Smart City Hub | Counselor Panel
