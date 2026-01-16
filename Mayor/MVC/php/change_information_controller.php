@@ -6,10 +6,17 @@ if(!isset($_SESSION['user_id'])||$_SESSION['role']!=='mayor'){
     exit;
 }
 $user_id=$_SESSION['user_id'];
-$sql="SELECT * FROM users WHERE id =$user_id";
+$sql="SELECT name, phone,location FROM users WHERE id=".intval($user_id);
 $result=mysqli_query($conn,$sql);
-$user=mysqli_fetch_array($result);
-$success= $error ="";
+$user=null;
+$success="";
+$error ="";
+if($result && mysqli_num_rows($result)>0){
+    $user =mysqli_fetch_assoc($result);
+}
+else{
+    $error="User not found ";
+}
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = mysqli_real_escape_string($conn, trim($_POST['name']));
     $phone = mysqli_real_escape_string($conn, trim($_POST['phone']));
@@ -30,6 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql.="WHERE id=$user_id";
         if(mysqli_query($conn,$sql)){
             $success ="Information update successfully";
+            $user=[
+                'name'=>$name,
+                'phone'=>$phone,
+                'location'=>$location
+            ];
 
         }
         else{
@@ -37,5 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 }
+
 include '../html/change_information.php';
 ?>
