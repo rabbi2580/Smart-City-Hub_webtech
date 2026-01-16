@@ -1,21 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Update Profile</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-<h2>Update Profile</h2>
+<?php
+session_start();
+require_once __DIR__ . "/../db/user_model.php";
 
-<form method="post" action="../php/profile_update_controller.php">
-    <input type="text" name="username" value="<?php echo $_SESSION['username']; ?>"><br><br>
-    <input type="email" name="email"><br><br>
-    <button type="submit">Update</button>
-</form>
+if (!isset($_SESSION["user_id"])) {
+    header("Location: ../html/login_view.php");
+    exit();
+}
 
-<p style="color:green;"><?php echo $success ?? ""; ?></p>
-<p style="color:red;"><?php echo $error ?? ""; ?></p>
+$name = trim($_POST["name"] ?? "");
+$phone = trim($_POST["phone"] ?? "");
+$location = trim($_POST["location"] ?? "");
+$area = trim($_POST["area"] ?? "");
 
-<a href="dashboard.php">Back</a>
-</body>
-</html>
+if ($name === "" || $phone === "" || $location === "") {
+    header("Location: ../html/profile_update_view.php");
+    exit();
+}
+
+$areaValue = $area === "" ? null : $area;
+
+$ok = user_update_profile(
+    $_SESSION["user_id"],
+    $name,
+    $phone,
+    $location,
+    $areaValue
+);
+
+if ($ok) {
+    $_SESSION["user_name"] = $name;
+}
+
+header("Location: ../html/profile_update_view.php?msg=ok");
+exit();
