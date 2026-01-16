@@ -18,7 +18,7 @@ if ($row = mysqli_fetch_assoc($result)) {
         $_SESSION['user_id'] = $row['id'];
         $_SESSION['email'] = $row['email'];
         $_SESSION['role'] = $row['role'];
-        header("Location: ../html/counselor.php");
+        header("Location: /Smart-City-Hub_webtech/counselor/MVC/html/counselor.php");
         exit;
     }
 }
