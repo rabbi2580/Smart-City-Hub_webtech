@@ -1,32 +1,75 @@
 <?php
 session_start();
-require_once __DIR__ . "/../db/user_model.php";
-
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    header("Location: ../html/login_view.php");
+if (isset($_SESSION["user_id"])) {
+    header("Location: dashboard.php");
     exit();
 }
 
-$username = trim($_POST["username"] ?? "");
-$password = $_POST["password"] ?? "";
+$error = isset($_GET["error"]) ? "Invalid username or password." : "";
+$registered = isset($_GET["registered"]) ? "Registration successful. Please login." : "";
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Citizen Portal Login</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
 
-if ($username === "" || $password === "") {
-    header("Location: ../html/login_view.php?error=1");
-    exit();
-}
+<header class="gov-header">
+    <div class="wrap">
+        <div class="gov-left">
+            <div class="seal">SC</div>
+            <div class="brand">
+                <div class="title">Smart City Citizen Portal</div>
+                <div class="subtitle">Government Services and Complaint Management</div>
+            </div>
+        </div>
+        <div class="gov-right"></div>
+    </div>
+</header>
 
-$user = user_find_by_username($username);
+<main class="container">
+    <div class="auth-grid">
+        <div class="card">
+            <div class="card-head">
+                <h2>Sign in</h2>
+                <p>Use your registered username and password to access your dashboard.</p>
+            </div>
 
-if (!$user || !password_verify($password, $user["password"])) {
-    header("Location: ../html/login_view.php?error=1");
-    exit();
-}
+            <div class="card-body">
+                <?php if ($registered !== "") { ?>
+                    <div class="notice"><?php echo htmlspecialchars($registered); ?></div>
+                <?php } ?>
 
-session_regenerate_id(true);
+                <?php if ($error !== "") { ?>
+                    <div class="alert"><?php echo htmlspecialchars($error); ?></div>
+                <?php } ?>
 
-$_SESSION["user_id"] = $user["id"];
-$_SESSION["user_name"] = $user["name"];
-$_SESSION["user_role"] = $user["role"];
+                <form method="POST" action="../php/login.php">
+                    <label>Username</label>
+                    <input type="text" name="username" required>
 
-header("Location: ../html/dashboard.php");
-exit();
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+
+                    <div class="actions">
+                        <button class="btn btn-primary" type="submit">Login</button>
+                    </div>
+                </form>
+
+                <div class="actions">
+                    <a class="btn" href="register_view.php">Create a new account</a>
+                </div>
+
+                <div class="notice">
+                    Authorized users only. All activities may be monitored for security purposes.
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>
