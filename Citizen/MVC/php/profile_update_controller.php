@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . "/../db/user_model.php";
+require_once "user_model.php";
 
 if (!isset($_SESSION["user_id"])) {
     header("Location: ../html/login.php");
