@@ -17,7 +17,9 @@ if (!isset($_SESSION['user_id'])) {
     Welcome, Counselor John Doe |
     <a href="profile.html">Manage Profile</a> |
     <a href="change-password.html">Change Password</a> |
-    <a href="login.html">Logout</a>
+    <a href="login.html">LogIn</a>
+    <a href="logout.php">Logout</a>
+
   </div>
 <link rel="stylesheet" href="../css/counselor.css">
 
