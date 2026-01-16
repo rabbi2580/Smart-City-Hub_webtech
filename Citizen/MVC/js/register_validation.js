@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded",function(){
-    const form =document.getElementById('registerForm');
-    const password= document.getElementById("password");
-    const confirmPassword =document.getElementById('confirm_password');
-    form.addEventListener('submit',function(a){
+    const form =document.querySelector('form');
+    const password= document.querySelector('input[name="password"]');
+    const confirmPassword =document.querySelector('input[name="confirm_password"]');
+    const phone = document.querySelector('input[name="phone"]');
+    form.addEventListener('submit',function(e){
         if(password.value!==confirmPassword.value){
             e.preventDefault();
             alert("Password not matched");
@@ -16,7 +17,8 @@ document.addEventListener("DOMContentLoaded",function(){
         const phoneValue=phone.value.replace(/\D/g,'');
         if(phoneValue.length!==11){
             e.preventDefault();
-            alert("Phone number must be 11 digit")
+            alert("Phone number must be 11 digit");
+            phone.focus();
             return;
         }
 
