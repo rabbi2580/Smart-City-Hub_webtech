@@ -10,5 +10,4 @@ mysqli_query($conn, "UPDATE complaints SET status='$status' WHERE id=$id");
 echo json_encode([
     "success" => true,
     "status" => $status
-
 ]);

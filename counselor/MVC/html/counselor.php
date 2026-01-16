@@ -80,10 +80,11 @@ $result = mysqli_query($conn, "
 
     <td>
         <form method="post" action="../Controller/saveComment.php">
-            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-            <textarea name="comment"><?php echo $row['counselor_comment']; ?></textarea>
-            <button type="submit">Save Comment</button>
-        </form>
+  <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+  <textarea name="comment"><?php echo $row['counselor_comment']; ?></textarea>
+  <button class="btn-comment">Save Comment</button>
+</form>
+
     </td>
 
     <td>
