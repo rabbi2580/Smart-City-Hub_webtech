@@ -5,14 +5,7 @@ require_once __DIR__ . "/complaint_model.php";
 $success = "";
 $error = "";
 
-$allowedTypes = [
-    "waste_management",
-    "drainage",
-    "road_damage",
-    "street_light",
-    "water_supply",
-    "other"
-];
+$allowedTypes = ["waste_management", "drainage", "road_damage", "streetlight", "other"];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $title = trim($_POST["title"] ?? "");
@@ -22,17 +15,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($title === "" || $description === "" || $type === "" || $location === "") {
         $error = "All fields are required.";
+    } else if (!in_array($type, $allowedTypes, true)) {
+        $error = "Invalid complaint type.";
     } else {
-        if (!in_array($type, $allowedTypes, true)) {
-            $error = "Invalid complaint type.";
-        } else {
-            $ok = complaint_create((int) $_SESSION["user_id"], $title, $description, $type, $location);
+        $ok = complaint_create((int) $_SESSION["user_id"], $title, $description, $type, $location);
 
-            if ($ok) {
-                $success = "Complaint submitted successfully.";
-            } else {
-                $error = "Failed to submit complaint. Please try again.";
-            }
+        if ($ok) {
+            $success = "Complaint submitted successfully.";
+        } else {
+            $error = "Failed to submit complaint. Please try again.";
         }
     }
 }
