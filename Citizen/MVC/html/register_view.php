@@ -1,5 +1,8 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 if (isset($_SESSION["user_id"])) {
     header("Location: dashboard.php");
     exit();
@@ -22,7 +25,6 @@ if ($error === "fail") $msg = "Registration failed. Try again.";
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-
 <header class="gov-header">
     <div class="wrap">
         <div class="gov-left">
@@ -43,13 +45,12 @@ if ($error === "fail") $msg = "Registration failed. Try again.";
                 <h2>Create account</h2>
                 <p>Register as a citizen to submit and track complaints.</p>
             </div>
-
             <div class="card-body">
                 <?php if ($msg !== "") { ?>
                     <div class="alert"><?php echo htmlspecialchars($msg); ?></div>
                 <?php } ?>
 
-                <form method="POST" action="../php/register.php">
+                <form method="POST" action="../php/register_controller.php">
                     <label>Username</label>
                     <input type="text" name="username" required>
 
@@ -87,6 +88,5 @@ if ($error === "fail") $msg = "Registration failed. Try again.";
         </div>
     </div>
 </main>
-
 </body>
 </html>

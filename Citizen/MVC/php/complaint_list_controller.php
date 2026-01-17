@@ -1,7 +1,7 @@
 <?php
-require_once "auth.php";
-require_once "complaint_model.php";
+require_once __DIR__ . "/auth.php";
+require_once __DIR__ . "/complaint_model.php";
 
-$complaints = complaint_get_by_user($_SESSION["user_id"]);
+$complaints = complaint_get_by_user((int) $_SESSION["user_id"]);
 
 require_once __DIR__ . "/../html/complaint_list_view.php";

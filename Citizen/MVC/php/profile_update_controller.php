@@ -2,23 +2,28 @@
 require_once __DIR__ . "/auth.php";
 require_once __DIR__ . "/user_model.php";
 
-$error = "";
-$success = "";
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $username = trim($_POST["username"] ?? "");
-    $email = trim($_POST["email"] ?? "");
-
-    if ($username === "" || $email === "") {
-        $error = "All fields are required";
-    } else {
-        if (user_update_profile($_SESSION["user_id"], $username, $email)) {
-            $_SESSION["username"] = $username;
-            $success = "Profile updated successfully";
-        } else {
-            $error = "Update failed";
-        }
-    }
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    header("Location: ../html/profile_update_view.php");
+    exit();
 }
 
-require_once __DIR__ . "/../html/profile_update_view.php";
+$name = trim($_POST["name"] ?? "");
+$phone = trim($_POST["phone"] ?? "");
+$location = trim($_POST["location"] ?? "");
+$area = trim($_POST["area"] ?? "");
+$areaValue = $area === "" ? null : $area;
+
+if ($name === "" || $phone === "" || $location === "") {
+    header("Location: ../html/profile_update_view.php?msg=fail");
+    exit();
+}
+
+$ok = user_update_profile_details((int) $_SESSION["user_id"], $name, $phone, $location, $areaValue);
+
+if (!$ok) {
+    header("Location: ../html/profile_update_view.php?msg=fail");
+    exit();
+}
+
+header("Location: ../html/profile_update_view.php?msg=ok");
+exit();

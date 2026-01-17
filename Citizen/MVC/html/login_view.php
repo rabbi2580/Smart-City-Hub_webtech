@@ -1,5 +1,8 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 if (isset($_SESSION["user_id"])) {
     header("Location: dashboard.php");
     exit();
@@ -16,7 +19,6 @@ $registered = isset($_GET["registered"]) ? "Registration successful. Please logi
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-
 <header class="gov-header">
     <div class="wrap">
         <div class="gov-left">
@@ -37,17 +39,15 @@ $registered = isset($_GET["registered"]) ? "Registration successful. Please logi
                 <h2>Sign in</h2>
                 <p>Use your registered username and password to access your dashboard.</p>
             </div>
-
             <div class="card-body">
                 <?php if ($registered !== "") { ?>
                     <div class="notice"><?php echo htmlspecialchars($registered); ?></div>
                 <?php } ?>
-
                 <?php if ($error !== "") { ?>
                     <div class="alert"><?php echo htmlspecialchars($error); ?></div>
                 <?php } ?>
 
-                <form method="POST" action="../php/login.php">
+                <form method="POST" action="../php/login_controller.php">
                     <label>Username</label>
                     <input type="text" name="username" required>
 
@@ -70,6 +70,5 @@ $registered = isset($_GET["registered"]) ? "Registration successful. Please logi
         </div>
     </div>
 </main>
-
 </body>
 </html>
