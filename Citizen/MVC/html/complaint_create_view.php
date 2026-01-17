@@ -47,6 +47,17 @@
                     <label>Description</label>
                     <textarea name="description" rows="6" required></textarea>
 
+                    <label>Type</label>
+                    <select name="type" required>
+                        <option value="">Select type</option>
+                        <option value="waste_management">Waste Management</option>
+                        <option value="drainage">Drainage</option>
+                        <option value="road_damage">Road Damage</option>
+                        <option value="street_light">Street Light</option>
+                        <option value="water_supply">Water Supply</option>
+                        <option value="other">Other</option>
+                    </select>
+
                     <label>Location</label>
                     <input type="text" name="location" required>
 
