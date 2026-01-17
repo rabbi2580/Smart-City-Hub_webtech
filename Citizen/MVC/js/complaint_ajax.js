@@ -2,7 +2,7 @@
   var form = document.getElementById("complaintForm");
   if (!form) return;
 
-  var msgBox = document.getElementById("msgBox");
+  
   var submitBtn = document.getElementById("submitBtn");
 
   function showMessage(ok, text) {
