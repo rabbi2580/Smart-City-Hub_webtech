@@ -61,6 +61,6 @@
     };
 
     xhttp.open("POST", "../php/complaint_create_ajax.php", true);
-    xhttp.send(new FormData(form));
+    
   });
 })();
