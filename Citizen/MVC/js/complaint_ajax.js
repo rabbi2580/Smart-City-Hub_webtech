@@ -1,5 +1,5 @@
 (function () {
-  
+  var form = document.getElementById("complaintForm");
   if (!form) return;
 
   var msgBox = document.getElementById("msgBox");
