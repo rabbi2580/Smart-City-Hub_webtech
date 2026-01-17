@@ -53,8 +53,7 @@
                         <option value="waste_management">Waste Management</option>
                         <option value="drainage">Drainage</option>
                         <option value="road_damage">Road Damage</option>
-                        <option value="street_light">Street Light</option>
-                        <option value="water_supply">Water Supply</option>
+                        <option value="streetlight">Street Light</option>
                         <option value="other">Other</option>
                     </select>
 
