@@ -35,6 +35,7 @@
                 <table border="1" cellpadding="10" style="width:100%; border-collapse:collapse;">
                     <tr>
                         <th>Title</th>
+                        <th>Type</th>
                         <th>Status</th>
                         <th>Location</th>
                         <th>ID</th>
@@ -44,6 +45,7 @@
                         <?php while ($row = $complaints->fetch_assoc()) { ?>
                             <tr>
                                 <td><?php echo htmlspecialchars($row["title"] ?? ""); ?></td>
+                                <td><?php echo htmlspecialchars($row["type"] ?? ""); ?></td>
                                 <td><?php echo htmlspecialchars($row["status"] ?? ""); ?></td>
                                 <td><?php echo htmlspecialchars($row["location"] ?? ""); ?></td>
                                 <td><?php echo htmlspecialchars($row["id"] ?? ""); ?></td>
@@ -51,7 +53,7 @@
                         <?php } ?>
                     <?php } else { ?>
                         <tr>
-                            <td colspan="4" style="text-align:center;">No complaints submitted yet.</td>
+                            <td colspan="5" style="text-align:center;">No complaints submitted yet.</td>
                         </tr>
                     <?php } ?>
                 </table>
