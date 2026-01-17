@@ -37,16 +37,16 @@
                         <th>Title</th>
                         <th>Status</th>
                         <th>Location</th>
-                        <th>Submitted</th>
+                        <th>ID</th>
                     </tr>
 
                     <?php if ($complaints && $complaints->num_rows > 0) { ?>
                         <?php while ($row = $complaints->fetch_assoc()) { ?>
                             <tr>
-                                <td><?php echo htmlspecialchars($row["title"]); ?></td>
-                                <td><?php echo htmlspecialchars($row["status"]); ?></td>
-                                <td><?php echo htmlspecialchars($row["location"]); ?></td>
-                                <td><?php echo htmlspecialchars($row["created_at"]); ?></td>
+                                <td><?php echo htmlspecialchars($row["title"] ?? ""); ?></td>
+                                <td><?php echo htmlspecialchars($row["status"] ?? ""); ?></td>
+                                <td><?php echo htmlspecialchars($row["location"] ?? ""); ?></td>
+                                <td><?php echo htmlspecialchars($row["id"] ?? ""); ?></td>
                             </tr>
                         <?php } ?>
                     <?php } else { ?>
