@@ -57,6 +57,12 @@ $registered = isset($_GET["registered"]) ? "Registration successful. Please logi
                     <div class="actions">
                         <button class="btn btn-primary" type="submit">Login</button>
                     </div>
+                    
+                    <label style="display:flex; align-items:center; gap:8px; font-size:14px; margin:10px 0;">
+                        <input type="checkbox" name="remember_me" value="1">
+                        Remember me
+                    </label>
+
                 </form>
 
                 <div class="actions">
