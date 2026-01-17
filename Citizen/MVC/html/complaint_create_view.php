@@ -32,15 +32,9 @@
             </div>
 
             <div class="card-body">
-                <?php if (!empty($success)) { ?>
-                    <div class="notice"><?php echo htmlspecialchars($success); ?></div>
-                <?php } ?>
+                <div id="msgBox"></div>
 
-                <?php if (!empty($error)) { ?>
-                    <div class="alert"><?php echo htmlspecialchars($error); ?></div>
-                <?php } ?>
-
-                <form method="post" action="../php/complaint_create_controller.php">
+                <form id="complaintForm">
                     <label>Title</label>
                     <input type="text" name="title" required>
 
@@ -61,7 +55,7 @@
                     <input type="text" name="location" required>
 
                     <div class="actions">
-                        <button class="btn btn-primary" type="submit">Submit Complaint</button>
+                        <button class="btn btn-primary" id="submitBtn" type="submit">Submit Complaint</button>
                         <a class="btn" href="../html/dashboard.php">Cancel</a>
                     </div>
                 </form>
@@ -73,6 +67,8 @@
         </div>
     </div>
 </main>
+
+<script src="../js/complaint_ajax.js"></script>
 
 </body>
 </html>
