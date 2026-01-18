@@ -46,7 +46,7 @@ require_once __DIR__ . "/../php/auth.php";
                 text-decoration:none;
                 white-space:nowrap;
                ">
-                
+                Update Personal Details
             </a>
         </div>
 
