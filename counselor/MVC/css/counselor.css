@@ -1,0 +1,158 @@
+body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-color: whitesmoke;
+    }
+     header {
+      background-color: dodgerblue;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    .user-info {
+      font-size: 14px;
+    }
+
+    .user-info a {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+    }
+
+    .user-info a:hover {
+      text-decoration: underline;
+    }
+
+    .menu {
+      background-color: steelblue;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 15px;
+    }
+
+    .menu a:hover {
+      text-decoration: underline;
+    }
+.container {
+  width: 90%;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Headings */
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+h2 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid pink;
+}
+
+th {
+  background-color: blue;
+  color: white;
+  padding: 10px;
+}
+
+td {
+  text-align: center;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+td img {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Textarea styling */
+textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-top: 5px;
+}
+
+/* Button styling */
+.btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 5px;
+}
+
+/* Valid button */
+.btn-valid {
+  background-color: green;
+}
+.btn-valid:hover {
+  background-color: darkgreen;
+}
+
+/* Invalid button */
+.btn-invalid {
+  background-color: red;
+}
+.btn-invalid:hover {
+  background-color: darkred;
+}
+
+/* Forward button */
+.btn-forward {
+  background-color: gold;
+  color: black;
+}
+.btn-forward:hover {
+  background-color: orange;
+}
+
+/* Comment and View History buttons */
+.btn-comment,
+.btn-view-history {
+  background-color: teal;
+}
+.btn-comment:hover,
+.btn-view-history:hover {
+  background-color: darkcyan;
+}
+footer {
+      margin-top: 40px;
+      text-align: center;
+      color: gray;
+      font-size: 14px;
+      padding: 10px;
+    }
