@@ -77,7 +77,7 @@ if ($error === "fail") $msg = "Registration failed. Try again.";
 
                     <div class="actions">
                         <button class="btn btn-primary" type="submit">Register</button>
-                       
+                        <a class="btn" href="login_view.php">Back to Login</a>
                     </div>
                 </form>
 
