@@ -66,7 +66,7 @@ $registered = isset($_GET["registered"]) ? "Registration successful. Please logi
                 </form>
 
                 <div class="actions">
-                    <a class="btn" href="register_view.php">Create a new account</a>
+                    
                 </div>
 
                 <div class="notice">
