@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 include "../../../db.php";
 $_SESSION['reg_message']='';
 $_SESSION['reg_form_data']=$_POST;
