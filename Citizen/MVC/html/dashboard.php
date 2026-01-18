@@ -4,7 +4,7 @@ require_once __DIR__ . "/../php/auth.php";
 <!DOCTYPE html>
 <html>
 <head>
-    
+    <meta charset="UTF-8">
     <title>Citizen Dashboard</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
