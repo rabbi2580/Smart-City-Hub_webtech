@@ -1,9 +1,10 @@
-<?php include("../php/forwarded_list.php"); ?>
+<?php include("../php/forwared.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Forwarded Complaints</title>
     <link rel="stylesheet" href="../css/forward.css">
+    
 </head>
 <body>
 
