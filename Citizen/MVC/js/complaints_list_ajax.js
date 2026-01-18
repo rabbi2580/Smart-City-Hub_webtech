@@ -59,7 +59,7 @@
       if (this.readyState === 4) {
         if (btn) {
           btn.disabled = false;
-          btn.innerText = "Refresh (AJAX)";
+          btn.innerText = "Refresh";
         }
 
         if (this.status === 200) {

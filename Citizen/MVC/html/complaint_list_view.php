@@ -27,7 +27,6 @@
     <div class="card">
         <div class="card-head">
             <h2>Complaint History</h2>
-            <p>Loaded using JSON + AJAX without page reload.</p>
         </div>
 
         <div class="card-body">
