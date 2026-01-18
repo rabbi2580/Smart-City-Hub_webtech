@@ -10,7 +10,7 @@ require_once __DIR__ . "/../php/auth.php";
 </head>
 <body>
 
-<header class="gov-header">
+
     <div class="wrap">
         <div class="gov-left">
             <div class="seal">SC</div>
