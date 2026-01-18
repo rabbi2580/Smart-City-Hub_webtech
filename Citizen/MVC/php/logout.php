@@ -13,7 +13,7 @@ if (isset($_COOKIE["remember_token"]) && $_COOKIE["remember_token"] !== "") {
 setcookie("remember_token", "", time() - 3600, "/");
 
 session_unset();
-session_destroy();
+
 
 header("Location: ../html/login_view.php");
 exit();
