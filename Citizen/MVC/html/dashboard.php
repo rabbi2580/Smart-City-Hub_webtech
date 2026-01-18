@@ -57,7 +57,7 @@ require_once __DIR__ . "/../php/auth.php";
                 <a class="btn" href="rewards.php">My Rewards</a>
             </div>
             <div class="notice">
-                Keep your account information private. If you suspect unauthorized access, contact support.
+                
             </div>
         </div>
     </div>
