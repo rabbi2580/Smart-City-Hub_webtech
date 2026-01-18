@@ -52,7 +52,7 @@
         }
 
         if (this.status === 500) {
-          
+          showMessage(false, "Server error. Try again.");
           return;
         }
 
