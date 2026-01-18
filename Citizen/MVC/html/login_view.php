@@ -8,7 +8,7 @@ if (isset($_SESSION["user_id"])) {
     exit();
 }
 
-
+$error = isset($_GET["error"]) ? "Invalid username or password." : "";
 $registered = isset($_GET["registered"]) ? "Registration successful. Please login." : "";
 ?>
 <!DOCTYPE html>
