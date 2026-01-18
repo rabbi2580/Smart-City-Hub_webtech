@@ -3,7 +3,7 @@
 <head>
     
     <title>Secretary Dashboard</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/secretary.css">
 </head>
 <body>
     <header>
