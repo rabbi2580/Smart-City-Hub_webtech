@@ -20,7 +20,7 @@ if ($error === "fail") $msg = "Registration failed. Try again.";
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8" />
+    
     <title>Citizen Registration</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
