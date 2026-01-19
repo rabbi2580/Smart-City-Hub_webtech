@@ -6,7 +6,7 @@ $_SESSION["reg_message"] = "";
 $_SESSION["reg_form_data"] = $_POST;
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    header("Location: ../html/register.php");
+    header("Location: ../html/register_view.php");
     exit();
 }
 
@@ -23,25 +23,25 @@ $phone_clean = preg_replace("/\D/", "", $phone);
 
 if ($first_name === "" || $last_name === "" || $username === "" || $id_number === "" || $phone === "" || $location === "") {
     $_SESSION["reg_message"] = "Fill up all the box";
-    header("Location: ../html/register.php");
+    header("Location: ../html/register_view.php");
     exit();
 }
 
 if (strlen($phone_clean) !== 11) {
     $_SESSION["reg_message"] = "Phone number must be 11 digit";
-    header("Location: ../html/register.php");
+    header("Location: ../html/register_view.php");
     exit();
 }
 
 if ($password !== $confirm_password) {
     $_SESSION["reg_message"] = "Pass do not matched";
-    header("Location: ../html/register.php");
+    header("Location: ../html/register_view.php");
     exit();
 }
 
 if (strlen($password) < 8) {
     $_SESSION["reg_message"] = "Pass must be > 8 characters";
-    header("Location: ../html/register.php");
+    header("Location: ../html/register_view.php");
     exit();
 }
 
@@ -52,7 +52,7 @@ $exists = $stmt->get_result()->fetch_assoc();
 
 if ($exists) {
     $_SESSION["reg_message"] = "username or id is already registered";
-    header("Location: ../html/register.php");
+    header("Location: ../html/register_view.php");
     exit();
 }
 
@@ -73,5 +73,5 @@ if ($stmt2->execute()) {
     $_SESSION["reg_message"] = "Error: " . $conn->error;
 }
 
-header("Location: ../html/register.php");
+header("Location: ../html/register_view.php");
 exit();
