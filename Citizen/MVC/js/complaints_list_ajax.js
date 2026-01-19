@@ -28,20 +28,21 @@
 
     if (!rows || rows.length === 0) {
       tbody.innerHTML =
-        '<tr><td colspan="6" style="text-align:center;">No complaints submitted yet.</td></tr>';
+        '<tr><td colspan="4" style="text-align:center;">No complaints submitted yet.</td></tr>';
       return;
     }
 
     var html = "";
     for (var i = 0; i < rows.length; i++) {
       var r = rows[i];
-      html += "<tr>";
-      html += "<td>" + esc(r.title) + "</td>";
-      html += "<td>" + esc(r.type) + "</td>";
-      html += "<td>" + esc(r.status) + "</td>";
-      html += "<td>" + esc(r.location) + "</td>";
-      html += "<td>" + esc(r.id) + "</td>";
-      html += "<td>" + (r.image_path ? esc(r.image_path) : "") + "</td>";
+      var statusText =
+        r.status && String(r.status).trim() !== "" ? r.status : "pending";
+
+      html += "</span></td>";
+      html += "<td>" + esc(r.title) + "</span></td>";
+      html += "<td>" + esc(statusText) + "</span></td>";
+      html += "<td>" + esc(r.location) + "</span></td>";
+      html += "<td>" + esc(r.id) + "</span></td>";
       html += "</tr>";
     }
     tbody.innerHTML = html;

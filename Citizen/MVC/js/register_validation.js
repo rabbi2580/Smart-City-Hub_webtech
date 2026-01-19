@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const confirmPassword = document.querySelector('input[name="confirm_password"]');
   const phone = document.querySelector('input[name="phone"]');
   const idNumber = document.querySelector('input[name="id_number"]');
+  const role = document.getElementById("role");
+  const accessCode = document.getElementById("access_code");
 
   form.addEventListener("submit", function (e) {
     if (password.value !== confirmPassword.value) {
@@ -34,6 +36,14 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("ID Number must be numeric");
       idNumber.focus();
       return;
+    }
+
+    if (role && role.value !== "citizen") {
+      if (!accessCode || accessCode.value.trim() === "") {
+        e.preventDefault();
+        alert("Access code is required for non-citizen roles.");
+        return;
+      }
     }
   });
 });

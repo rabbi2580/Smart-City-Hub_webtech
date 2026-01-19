@@ -27,31 +27,30 @@
     <div class="card">
         <div class="card-head">
             <h2>Complaint History</h2>
+            <p>Review your submitted complaints and current status.</p>
         </div>
 
         <div class="card-body">
             <div id="complaintsMsg"></div>
 
-            <div class="actions" style="margin-bottom:14px;">
-                <button class="btn btn-primary" id="refreshComplaintsBtn" type="button">Refresh (AJAX)</button>
+            <div class="actions" style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:14px;">
+                <button class="btn btn-primary" id="refreshComplaintsBtn" type="button">Refresh</button>
                 <a class="btn" href="../php/complaint_create_controller.php">Submit New Complaint</a>
             </div>
 
-            <div style="overflow-x:auto;">
-                <table border="1" cellpadding="10" style="width:100%; border-collapse:collapse;">
+            <div class="table-wrap">
+                <table class="gov-table">
                     <thead>
                         <tr>
-                            <th>Title</th>
-                            <th>Type</th>
-                            <th>Status</th>
-                            <th>Location</th>
-                            <th>ID</th>
-                            <th>Image Path</th>
+                            <th class="col-title">Title</th>
+                            <th class="col-status">Status</th>
+                            <th class="col-location">Location</th>
+                            <th class="col-id">ID</th>
                         </tr>
                     </thead>
                     <tbody id="complaintsTbody">
                         <tr>
-                            <td colspan="6" style="text-align:center;">Loading...</td>
+                            <td colspan="4" style="text-align:center;">Loading...</td>
                         </tr>
                     </tbody>
                 </table>

@@ -22,25 +22,25 @@ $location = trim($_POST["location"] ?? "");
 $phone_clean = preg_replace("/\D/", "", $phone);
 
 if ($first_name === "" || $last_name === "" || $username === "" || $id_number === "" || $phone === "" || $location === "") {
-    $_SESSION["reg_message"] = "Fill up all the box";
+    $_SESSION["reg_message"] = "Please fill in all fields.";
     header("Location: ../html/register_view.php");
     exit();
 }
 
 if (strlen($phone_clean) !== 11) {
-    $_SESSION["reg_message"] = "Phone number must be 11 digit";
+    $_SESSION["reg_message"] = "Phone number must be 11 digits.";
     header("Location: ../html/register_view.php");
     exit();
 }
 
 if ($password !== $confirm_password) {
-    $_SESSION["reg_message"] = "Pass do not matched";
+    $_SESSION["reg_message"] = "Passwords do not match.";
     header("Location: ../html/register_view.php");
     exit();
 }
 
 if (strlen($password) < 8) {
-    $_SESSION["reg_message"] = "Pass must be > 8 characters";
+    $_SESSION["reg_message"] = "Password must be at least 8 characters.";
     header("Location: ../html/register_view.php");
     exit();
 }
@@ -51,7 +51,7 @@ $stmt->execute();
 $exists = $stmt->get_result()->fetch_assoc();
 
 if ($exists) {
-    $_SESSION["reg_message"] = "username or id is already registered";
+    $_SESSION["reg_message"] = "Username or ID number already exists.";
     header("Location: ../html/register_view.php");
     exit();
 }
@@ -67,10 +67,10 @@ $stmt2 = $conn->prepare(
 $stmt2->bind_param("sssssss", $username, $hashed, $full_name, $id_number, $phone_clean, $location, $role);
 
 if ($stmt2->execute()) {
-    $_SESSION["reg_message"] = "Registration successful";
+    $_SESSION["reg_message"] = "Registration successful. You may now login.";
     $_SESSION["reg_form_data"] = [];
 } else {
-    $_SESSION["reg_message"] = "Error: " . $conn->error;
+    $_SESSION["reg_message"] = "Registration failed. Please try again.";
 }
 
 header("Location: ../html/register_view.php");

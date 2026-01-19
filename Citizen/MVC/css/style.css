@@ -245,3 +245,42 @@ textarea:focus {
 h1, h2, h3 {
     letter-spacing: 0.1px;
 }
+
+.gov-table th,
+.gov-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+    font-size: 14px;
+}
+
+.gov-table thead th {
+    background: #f6f8fb;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--border);
+}
+
+.gov-table tbody td {
+    background: #fff;
+}
+
+.gov-table tbody tr:nth-child(even) td {
+    background: #fbfdff;
+}
+
+.gov-table tbody tr:hover td {
+    background: #f6f9ff;
+}
+
+.gov-table td:last-child {
+    text-align: right;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.gov-table .col-status {
+    text-transform: capitalize;
+}

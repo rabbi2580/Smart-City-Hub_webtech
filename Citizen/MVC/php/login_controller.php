@@ -2,30 +2,36 @@
 session_start();
 require_once __DIR__ . "/user_model.php";
 
-function remember_token_set($user_id) {
-    require_once __DIR__ . "/../db/db.php";
-    global $conn;
+function redirect_to_dashboard_by_role($role) {
+    $role = strtolower(trim($role));
 
-    $token = bin2hex(random_bytes(32));
-    $tokenHash = hash("sha256", $token);
-    $expiresAt = date("Y-m-d H:i:s", time() + (60 * 60 * 24 * 30));
+    if ($role === "citizen") {
+        header("Location: ../html/dashboard.php");
+        exit();
+    }
 
-    $stmt = $conn->prepare("INSERT INTO remember_tokens (user_id, token_hash, expires_at) VALUES (?, ?, ?)");
-    $stmt->bind_param("iss", $user_id, $tokenHash, $expiresAt);
-    $stmt->execute();
+    if ($role === "counselor") {
+        header("Location: ../../Counselor/MVC/html/dashboard.php");
+        exit();
+    }
 
-    setcookie("remember_token", $token, [
-        "expires" => time() + (60 * 60 * 24 * 30),
-        "path" => "/",
-        "httponly" => true,
-        "samesite" => "Lax"
-    ]);
+    if ($role === "secretary") {
+        header("Location: ../../Secretary/MVC/html/dashboard.php");
+        exit();
+    }
+
+    if ($role === "mayor") {
+        header("Location: ../../Mayor/MVC/html/dashboard.php");
+        exit();
+    }
+
+    header("Location: ../html/login_view.php?error=role");
+    exit();
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = trim($_POST["username"] ?? "");
     $password = $_POST["password"] ?? "";
-    $remember = isset($_POST["remember_me"]) && $_POST["remember_me"] === "1";
 
     if ($username === "" || $password === "") {
         header("Location: ../html/login_view.php?error=1");
@@ -43,12 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $_SESSION["username"] = $user["username"];
     $_SESSION["role"] = $user["role"];
 
-    if ($remember) {
-        remember_token_set((int) $user["id"]);
-    }
-
-    header("Location: ../html/dashboard.php");
-    exit();
+    redirect_to_dashboard_by_role($_SESSION["role"]);
 }
 
 require_once __DIR__ . "/../html/login_view.php";

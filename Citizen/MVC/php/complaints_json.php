@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] !== "GET") {
 $citizen_id = (int) $_SESSION["user_id"];
 
 $stmt = $conn->prepare(
-    "SELECT id, title, description, type, location, status, image_path
+    "SELECT id, title, status, location
      FROM complaints
      WHERE citizen_id = ?
      ORDER BY id DESC"
