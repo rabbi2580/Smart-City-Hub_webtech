@@ -1,92 +1,62 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-if (isset($_SESSION["user_id"])) {
-    header("Location: dashboard.php");
-    exit();
-}
-
-$error = $_GET["error"] ?? "";
-$msg = "";
-
-if ($error === "empty") $msg = "All required fields must be filled.";
-if ($error === "match") $msg = "Passwords do not match.";
-if ($error === "weak") $msg = "Password must be at least 6 characters.";
-if ($error === "user") $msg = "Username already exists. Choose a different one.";
-if ($error === "fail") $msg = "Registration failed. Try again.";
+session_start();
+$message = $_SESSION["reg_message"] ?? "";
+$form_data = $_SESSION["reg_form_data"] ?? [];
+unset($_SESSION["reg_message"]);
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Citizen Registration</title>
-    <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citizen Registration</title>
+  <link rel="stylesheet" href="../css/register_style.css">
+  <script src="../js/register_validation.js" defer></script>
 </head>
 <body>
-<header class="gov-header">
-    <div class="wrap">
-        <div class="gov-left">
-            <div class="seal">SC</div>
-            <div class="brand">
-                <div class="title">Smart City Citizen Portal</div>
-                <div class="subtitle">Citizen Registration</div>
-            </div>
-        </div>
-        <div class="gov-right"></div>
-    </div>
-</header>
+  <div class="container">
+    <h1>Citizen Registration</h1>
 
-<main class="container">
-    <div class="auth-grid">
-        <div class="card">
-            <div class="card-head">
-                <h2>Create account</h2>
-                <p>Register as a citizen to submit and track complaints.</p>
-            </div>
-            <div class="card-body">
-                <?php if ($msg !== "") { ?>
-                    <div class="alert"><?php echo htmlspecialchars($msg); ?></div>
-                <?php } ?>
+    <?php if ($message): ?>
+      <div style="padding:15px; margin:20px 0; border-radius:6px;
+        background:<?php echo strpos($message, "successful") !== false ? "#e8f5e9" : "#ffebee"; ?>;
+        color:<?php echo strpos($message, "successful") !== false ? "#2e7d32" : "#c62828"; ?>;">
+        <?php echo htmlspecialchars($message); ?>
+      </div>
+    <?php endif; ?>
 
-                <form method="POST" action="../php/register_controller.php">
-                    <label>Username</label>
-                    <input type="text" name="username" required>
+    <form method="POST" action="../php/register_controller.php">
+      <label>First Name</label>
+      <input type="text" name="first_name" value="<?php echo htmlspecialchars($form_data["first_name"] ?? ""); ?>" required>
 
-                    <label>Password</label>
-                    <input type="password" name="password" required>
+      <label>Last Name</label>
+      <input type="text" name="last_name" value="<?php echo htmlspecialchars($form_data["last_name"] ?? ""); ?>" required>
 
-                    <label>Confirm Password</label>
-                    <input type="password" name="confirm_password" required>
+      <label>Username</label>
+      <input type="text" name="username" value="<?php echo htmlspecialchars($form_data["username"] ?? ""); ?>" required>
 
-                    <label>Full Name</label>
-                    <input type="text" name="name" required>
+      <label>Password</label>
+      <input type="password" name="password" required>
 
-                    <label>ID Number</label>
-                    <input type="text" name="id_number" required>
+      <label>Confirm Password</label>
+      <input type="password" name="confirm_password" required>
 
-                    <label>Phone</label>
-                    <input type="text" name="phone" required>
+      <label>ID Number</label>
+      <input type="text" name="id_number" value="<?php echo htmlspecialchars($form_data["id_number"] ?? ""); ?>" required>
 
-                    <label>Location</label>
-                    <input type="text" name="location" required>
+      <label>Phone Number</label>
+      <input type="text" name="phone" value="<?php echo htmlspecialchars($form_data["phone"] ?? ""); ?>" required>
 
-                    <label>Area (optional)</label>
-                    <input type="text" name="area">
+      <label>Location</label>
+      <input type="text" name="location" value="<?php echo htmlspecialchars($form_data["location"] ?? ""); ?>" required>
 
-                    <div class="actions">
-                        <button class="btn btn-primary" type="submit">Register</button>
-                        <a class="btn" href="login_view.php">Back to Login</a>
-                    </div>
-                </form>
+      <button type="submit">Register</button>
+    </form>
 
-                <div class="notice">
-                    Your password is stored securely as a hash. Do not share your credentials.
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
+    <p class="login-link">
+      Already have a Smart City Hub account?
+      <a href="login_view.php">Click here</a>
+    </p>
+  </div>
 </body>
 </html>
