@@ -42,11 +42,9 @@
                     <thead>
                         <tr>
                             <th>Title</th>
-                            <th>Type</th>
                             <th>Status</th>
                             <th>Location</th>
                             <th>ID</th>
-                            <th>Image Path</th>
                         </tr>
                     </thead>
                     <tbody id="complaintsTbody">

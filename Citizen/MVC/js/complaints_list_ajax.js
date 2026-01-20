@@ -37,11 +37,9 @@
       var r = rows[i];
       html += "<tr>";
       html += "<td>" + esc(r.title) + "</td>";
-      html += "<td>" + esc(r.type) + "</td>";
       html += "<td>" + esc(r.status) + "</td>";
       html += "<td>" + esc(r.location) + "</td>";
       html += "<td>" + esc(r.id) + "</td>";
-      html += "<td>" + (r.image_path ? esc(r.image_path) : "") + "</td>";
       html += "</tr>";
     }
     tbody.innerHTML = html;
