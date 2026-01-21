@@ -24,7 +24,7 @@ $registered = isset($_GET["registered"]) ? "Registration successful. Please logi
         <div class="gov-left">
             <div class="seal">SC</div>
             <div class="brand">
-                <div class="title">Smart City Citizen Portal</div>
+                <div class="title">Smart City Hub</div>
                 <div class="subtitle">Government Services and Complaint Management</div>
             </div>
         </div>

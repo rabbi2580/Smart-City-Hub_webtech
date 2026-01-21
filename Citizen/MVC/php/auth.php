@@ -3,14 +3,16 @@ session_start();
 require_once __DIR__ . "/user_model.php";
 require_once __DIR__ . "/../db/db.php";
 
+
 function auth_login_with_cookie() {
     global $conn;
+
 
     if (isset($_SESSION["user_id"])) {
         return true;
     }
 
-    if (!isset($_COOKIE["remember_token"]) || $_COOKIE["remember_token"] === "") {
+    if (empty($_COOKIE["remember_token"])) {
         return false;
     }
 
@@ -25,19 +27,35 @@ function auth_login_with_cookie() {
     );
     $stmt->bind_param("s", $tokenHash);
     $stmt->execute();
+
     $row = $stmt->get_result()->fetch_assoc();
 
     if (!$row) {
         return false;
     }
 
-    $_SESSION["user_id"] = (int) $row["user_id"];
+    
+    session_regenerate_id(true);
+    $_SESSION["user_id"] = (int)$row["user_id"];
     $_SESSION["username"] = $row["username"];
     $_SESSION["role"] = $row["role"];
+
     return true;
 }
 
-if (!auth_login_with_cookie()) {
-    header("Location: ../html/login_view.php");
-    exit();
+
+function require_login() {
+    if (!auth_login_with_cookie()) {
+        header("Location: ../login_view.php");
+        exit();
+    }
+}
+
+function require_role($role) {
+    require_login();
+
+    if ($_SESSION["role"] !== $role) {
+        header("Location: ../login_view.php");
+        exit();
+    }
 }

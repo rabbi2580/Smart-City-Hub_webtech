@@ -1,3 +1,6 @@
+<?php
+$username = 'Mayor';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +12,7 @@
 <body>
     <div class="container">
         <h1>Change Your Information</h1>
-        <a href="/SmartCityHub/Mayor/MVC/html/mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
+        <a href="/Smart-City-Hub_webtech/Mayor/MVC/html/mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
         <?php if($success): ?>
             <p style="color: aqua;"><?php echo $success; ?></p>
         <?php endif ?>

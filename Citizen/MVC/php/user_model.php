@@ -22,14 +22,13 @@ function user_username_exists($username) {
     $stmt = $conn->prepare("SELECT 1 FROM users WHERE username = ? LIMIT 1");
     $stmt->bind_param("s", $username);
     $stmt->execute();
-    $res = $stmt->get_result();
-    return $res && $res->num_rows > 0;
+    return $stmt->get_result()->num_rows > 0;
 }
 
 function user_create_citizen($username, $password_hash, $name, $id_number, $phone, $location, $area) {
     global $conn;
 
-    $role = "citizen"; // your enum uses lowercase citizen
+    $role = "citizen";
 
     $stmt = $conn->prepare(
         "INSERT INTO users (username, password, name, id_number, phone, location, area, role)
@@ -53,9 +52,11 @@ function user_create_citizen($username, $password_hash, $name, $id_number, $phon
 
 function user_update_profile_details($id, $name, $phone, $location, $area) {
     global $conn;
+
     $stmt = $conn->prepare(
         "UPDATE users SET name = ?, phone = ?, location = ?, area = ? WHERE id = ?"
     );
     $stmt->bind_param("ssssi", $name, $phone, $location, $area, $id);
+
     return $stmt->execute();
 }

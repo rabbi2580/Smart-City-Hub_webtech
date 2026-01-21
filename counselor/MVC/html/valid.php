@@ -7,11 +7,11 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 require $_SERVER['DOCUMENT_ROOT']."/Smart-City-Hub_webtech/counselor/MVC/db/coun.php";
-
+$area = $_SESSION['area'];
 $result = mysqli_query($conn, "
     SELECT id, description, location, status
     FROM complaints
-    WHERE status='valid'
+    WHERE status='valid' AND location = '{$_SESSION['area']}'
 ");
 ?>
 
@@ -56,6 +56,7 @@ $result = mysqli_query($conn, "
 
     </table>
 </div>
+<button class="back-btn" onclick="history.back()">← Back</button>
 
 </body>
 </html>

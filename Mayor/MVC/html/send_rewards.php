@@ -1,3 +1,6 @@
+<?php
+$username = 'Mayor'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

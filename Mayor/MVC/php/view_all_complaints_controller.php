@@ -15,5 +15,7 @@ $complaints=[];
 while($row=mysqli_fetch_array($result)){
     $complaints[]=$row;
 }
+
+
 include '../html/view_all_complaints.php';
 ?>

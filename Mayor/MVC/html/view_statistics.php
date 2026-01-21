@@ -1,5 +1,5 @@
 <?php
-
+$username = 'Mayor';
 if (!isset($total))     $total = 0;
 if (!isset($completed)) $completed = 0;
 if (!isset($pending))   $pending = 0;
@@ -16,7 +16,7 @@ if (!isset($rejected))  $rejected = 0;
 <body>
     <div class="container">
         <h1>Complaint Statistics</h1>
-        <a href="/SmartCityHub/Mayor/MVC/html/mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
+        <a href="/Smart-City-Hub_webtech/Mayor/MVC/html/mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
         <div class="stats">
             <p><strong>Total Complaints:</strong> <?php echo $total; ?></p>
             <p><strong>Completed:</strong> <?php echo $completed; ?></p>

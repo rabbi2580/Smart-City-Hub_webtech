@@ -1,158 +1,196 @@
+
 body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background-color: whitesmoke;
-    }
-     header {
-      background-color: dodgerblue;
-      color: white;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    header h1 {
-      margin: 0;
-    }
-
-    .user-info {
-      font-size: 14px;
-    }
-
-    .user-info a {
-      color: white;
-      text-decoration: none;
-      margin-left: 15px;
-    }
-
-    .user-info a:hover {
-      text-decoration: underline;
-    }
-
-    .menu {
-      background-color: steelblue;
-      padding: 10px;
-      text-align: center;
-    }
-
-    .menu a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 0 15px;
-    }
-
-    .menu a:hover {
-      text-decoration: underline;
-    }
-.container {
-  width: 90%;
-  margin: 30px auto;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
 }
 
-/* Headings */
-h1 {
-  text-align: center;
-  color: #333;
+
+header {
+    background-color: dodgerblue;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.user-info {
+    font-size: 14px;
+}
+
+.user-info a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: 500;
+}
+
+.user-info a:hover {
+    text-decoration: underline;
+}
+
+
+.menu {
+    background-color: steelblue;
+    padding: 10px;
+    text-align: center;
+    box-shadow: inset 0 -2px 3px rgba(0,0,0,0.2);
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 15px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+
+h1, h2 {
+    text-align: center;
+    color: #333;
 }
 
 h2 {
-  color: #333;
-  text-align: center;
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
-/* Table styling */
+
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
 }
 
 table, th, td {
-  border: 1px solid pink;
+    border: 1px solid #ddd;
 }
 
 th {
-  background-color: blue;
-  color: white;
-  padding: 10px;
+    background-color: dodgerblue;
+    color: #fff;
+    padding: 12px;
+    text-transform: uppercase;
 }
 
 td {
-  text-align: center;
-  padding: 10px;
-  vertical-align: middle;
+    text-align: center;
+    padding: 10px;
+    vertical-align: middle;
 }
 
 td img {
-  width: 80px;
-  height: auto;
-  border-radius: 8px;
+    width: 80px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
 }
 
-/* Textarea styling */
+
 textarea {
-  width: 100%;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid gray;
-  margin-top: 5px;
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    font-family: inherit;
+    font-size: 14px;
 }
 
-/* Button styling */
+
 .btn {
-  padding: 8px 15px;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  font-size: 14px;
-  margin: 5px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 5px 2px;
+    transition: background-color 0.3s;
+    font-weight: 500;
 }
 
-/* Valid button */
+
 .btn-valid {
-  background-color: green;
+    background-color: green;
+    color: white;
 }
 .btn-valid:hover {
-  background-color: darkgreen;
+    background-color: darkgreen;
 }
 
-/* Invalid button */
 .btn-invalid {
-  background-color: red;
+    background-color: red;
+    color: white;
 }
 .btn-invalid:hover {
-  background-color: darkred;
+    background-color: darkred;
 }
 
-/* Forward button */
 .btn-forward {
-  background-color: gold;
-  color: black;
+    background-color: gold;
+    color: black;
 }
 .btn-forward:hover {
-  background-color: orange;
+    background-color: orange;
 }
 
-/* Comment and View History buttons */
 .btn-comment,
 .btn-view-history {
-  background-color: teal;
+    background-color: teal;
+    color: white;
 }
 .btn-comment:hover,
 .btn-view-history:hover {
-  background-color: darkcyan;
+    background-color: darkcyan;
 }
+
+
 footer {
-      margin-top: 40px;
-      text-align: center;
-      color: gray;
-      font-size: 14px;
-      padding: 10px;
-    }
+    margin-top: 40px;
+    text-align: center;
+    color: gray;
+    font-size: 14px;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+
+.success {
+    color: green;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}

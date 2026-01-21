@@ -1,3 +1,6 @@
+<?php
+$username = 'Mayor'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +12,7 @@
 <body>
     <div class="container">
         <h1>All Complaints</h1>
-        <a href="/SmartCityHub/Mayor/MVC/html/mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
+        <a href="/Smart-City-Hub_webtech/Mayor/MVC/html/mayor_dashboard.php" class="back-btn"><- Back to Dashboard</a>
         <?php if(empty($complaints)):?>
             <p>No complaint found.</p>
         <?php else:?>

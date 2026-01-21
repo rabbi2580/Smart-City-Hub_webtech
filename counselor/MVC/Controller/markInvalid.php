@@ -6,5 +6,5 @@ $id = $_POST['id'];
 
 mysqli_query($conn, "UPDATE complaints SET status='invalid' WHERE id=$id");
 
-header("Location: ../html/counselor.php");
+header("Location: ../html/allcomplaint.php");
 exit;
